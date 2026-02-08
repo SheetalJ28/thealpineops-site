@@ -10,11 +10,12 @@
 }
 
 .inner {
-  max-width: 1200px;
-  margin: auto;
-  padding: 1rem 1.5rem;
-  display: flex;
+  padding: 1rem clamp(1.25rem, 3vw, 3.5rem);
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
+  width: 100%;
 }
 
 /* Hamburger on LEFT */
@@ -60,6 +61,7 @@
   font-weight: 700;
   letter-spacing: 2px;
   cursor: pointer;
+  justify-self: start;
 
   &:hover {
     color: var(--accent);
@@ -68,7 +70,7 @@
 
 /* Desktop links */
 .links {
-  margin-left: auto;
+  justify-self: center;
   display: flex;
   gap: 2rem;
 
@@ -95,7 +97,7 @@
 
 .closeBtn {
   align-self: flex-end;
-  font-size: 2rem;
+  font-size: 1.5rem;
   background: none;
   border: 0;
   color: var(--text);
@@ -103,8 +105,28 @@
 }
 
 .mobileLink {
-  font-size: 1.4rem;
-  text-transform: uppercase;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  letter-spacing: 0.08em;
+}
+
+.mobileIcon {
+  display: inline-flex;
+  width: 1.4rem;
+  height: 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+
+  svg {
+    width: 0.95rem;
+    height: 0.95rem;
+    fill: currentColor;
+  }
 }
 
 .backdrop {

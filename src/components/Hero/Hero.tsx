@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
-import styles from "./Hero.module.scss";
+// import styles from "./Hero.module.scss";
 
 const Hero = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -39,7 +39,7 @@ const Hero = () => {
         image: `${baseUrl}assets/images/main4.jpg`,
       },
     ],
-    [baseUrl]
+    [baseUrl],
   );
 
   useLayoutEffect(() => {
@@ -54,7 +54,7 @@ const Hero = () => {
           duration: 1,
           ease: "power3.out",
           clearProps: "opacity,transform",
-        }
+        },
       );
     }, ref);
 
@@ -76,25 +76,23 @@ const Hero = () => {
   const activeSlide = slides[activeIndex];
 
   return (
-    <section ref={ref} className={styles.hero} aria-roledescription="carousel">
-      <div className={styles.media}>
+    <section ref={ref} className="hero" aria-roledescription="carousel">
+      <div className="media">
         {slides.map((slide, index) => (
           <div
             key={slide.title}
-            className={`${styles.slide} ${
-              index === activeIndex ? styles.active : ""
-            }`}
+            className={`${"slide"} ${index === activeIndex ? "active" : ""}`}
             style={{ backgroundImage: `url(${slide.image})` }}
             role="group"
             aria-roledescription="slide"
             aria-label={`${index + 1} of ${slides.length}`}
           />
         ))}
-        <div className={styles.overlay} />
-        <div className={styles.controls}>
+        <div className="overlay" />
+        <div className="controls">
           <button
             type="button"
-            className={styles.navButton}
+            className="navButton"
             onClick={() => goTo(activeIndex - 1)}
             aria-label="Previous slide"
           >
@@ -102,7 +100,7 @@ const Hero = () => {
           </button>
           <button
             type="button"
-            className={styles.navButton}
+            className="navButton"
             onClick={() => goTo(activeIndex + 1)}
             aria-label="Next slide"
           >
@@ -111,21 +109,19 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className={styles.content}>
-        <span className={styles.kicker}>Homepage feature</span>
+      <div className="content">
+        <span className="kicker">Homepage feature</span>
         <h1>{activeSlide.title}</h1>
         <p>{activeSlide.copy}</p>
-        <Link className={styles.cta} to={activeSlide.to}>
+        <Link className="cta" to={activeSlide.to}>
           {activeSlide.cta}
         </Link>
-        <div className={styles.dots} role="tablist" aria-label="Slides">
+        <div className="dots" role="tablist" aria-label="Slides">
           {slides.map((slide, index) => (
             <button
               key={slide.title}
               type="button"
-              className={`${styles.dot} ${
-                index === activeIndex ? styles.dotActive : ""
-              }`}
+              className={`$"dot} ${index === activeIndex ? "dotActive" : ""}`}
               onClick={() => goTo(index)}
               aria-label={`Go to slide ${index + 1}`}
               aria-pressed={index === activeIndex}
