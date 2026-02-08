@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
-import ThemeToggle from "../ThemeToggle";
+// import ThemeToggle from "../ThemeToggle";
 import styles from "./Navbar.module.scss";
 
 const Navbar = () => {
@@ -79,7 +79,7 @@ const Navbar = () => {
             <Link to="/programs">Programs</Link>
             <Link to="/about">About</Link>
             <Link to="/contact">Contact</Link>
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
           </div>
         </div>
       </nav>
@@ -121,7 +121,7 @@ const Navbar = () => {
           Contact
         </Link>
 
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
       </div>
     </>
   );

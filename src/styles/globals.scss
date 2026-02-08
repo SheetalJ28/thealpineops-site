@@ -1,5 +1,5 @@
-@use "variables";
-@use "mixins";
+@import "variables";
+@import "mixins";
 
 body {
   margin: 0;
@@ -9,4 +9,10 @@ body {
   transition:
     background 0.3s ease,
     color 0.3s ease;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
