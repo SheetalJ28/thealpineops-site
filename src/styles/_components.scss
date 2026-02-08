@@ -1,0 +1,59 @@
+.hero {
+  padding-top: 8rem;
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    max-width: 600px;
+    color: $text-muted;
+  }
+
+  .cta {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    border: 1px solid $accent;
+    color: $accent;
+    font-weight: 600;
+    transition: background $transition;
+
+    &:hover {
+      background: rgba(198, 161, 91, 0.1);
+    }
+  }
+}
+
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.program-card {
+  background: $bg-card;
+  padding: 2rem;
+  border-left: 4px solid $accent;
+
+  h3 {
+    margin-top: 0;
+  }
+
+  p {
+    color: $text-muted;
+  }
+
+  .status {
+    color: $accent;
+    font-weight: 600;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: $text-muted;
+}

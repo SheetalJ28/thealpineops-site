@@ -1,0 +1,117 @@
+@use "../../styles/mixins" as *;
+
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(11, 14, 17, 0.9);
+  backdrop-filter: blur(6px);
+  z-index: 100;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Hamburger on LEFT */
+.hamburger {
+  display: none; // ✅ hidden by default (desktop)
+  background: none;
+  border: 0;
+  cursor: pointer;
+  z-index: 200;
+  margin-right: 1.5rem;
+
+  span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    margin: 6px 0;
+    background: var(--text);
+    transition: all 0.3s ease;
+  }
+
+  // ✅ show ONLY on mobile
+  @include respond(md) {
+    display: block;
+  }
+}
+
+/* Hamburger → X animation */
+.hamburgerOpen {
+  span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  span:nth-child(2) {
+    opacity: 0;
+  }
+
+  span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+/* Desktop links */
+.links {
+  margin-left: auto;
+  display: flex;
+  gap: 2rem;
+
+  @include respond(md) {
+    display: none;
+  }
+}
+
+/* MOBILE MENU – SLIDE FROM LEFT */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 80%;
+  max-width: 320px;
+  background: var(--bg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  z-index: 150;
+}
+
+.closeBtn {
+  align-self: flex-end;
+  font-size: 2rem;
+  background: none;
+  border: 0;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.mobileLink {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 120;
+  opacity: 0;
+  pointer-events: none;
+}
