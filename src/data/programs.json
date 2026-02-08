@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "title": "Winter Commando Camp",
+    "location": "Himachal",
+    "date": "Jan 2026",
+    "duration": "10 Days",
+    "status": "Open"
+  },
+  {
+    "id": 2,
+    "title": "Urban Survival Program",
+    "location": "Delhi",
+    "date": "Mar 2026",
+    "duration": "5 Days",
+    "status": "Coming Soon"
+  }
+]
