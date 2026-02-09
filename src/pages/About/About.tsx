@@ -122,7 +122,7 @@ const About = () => {
         <div className="foundersGrid">
           <article>
             <img
-              src={`${baseUrl}assets/images/main7.jpg`}
+              src={`${baseUrl}assets/images/founders/ishant.jpg`}
               alt="Founder profile"
             />
             <div className="foundersInformation">
@@ -177,7 +177,7 @@ const About = () => {
           </article>
           <article>
             <img
-              src={`${baseUrl}assets/images/main4.jpg`}
+              src={`${baseUrl}assets/images/founders/raman.png`}
               alt="Founder profile"
             />
             <div className="foundersInformation">
