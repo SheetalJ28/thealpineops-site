@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import gsap from "gsap";
 // import ThemeToggle from "../ThemeToggle";
 
@@ -73,9 +73,15 @@ const Navbar = () => {
           </Link>
 
           <div className="links">
-            <Link to="/programs">Programs</Link>
-            <Link to="/about">About</Link>
-            <Link to="/contact">Contact</Link>
+            <NavLink to="/programs" className={({ isActive }) => (isActive ? "activeLink" : "")}>
+              Programs
+            </NavLink>
+            <NavLink to="/about" className={({ isActive }) => (isActive ? "activeLink" : "")}>
+              About
+            </NavLink>
+            <NavLink to="/contact" className={({ isActive }) => (isActive ? "activeLink" : "")}>
+              Contact
+            </NavLink>
             {/* <ThemeToggle /> */}
           </div>
         </div>
@@ -105,38 +111,63 @@ const Navbar = () => {
           ✕
         </button>
 
-        <Link className="mobileLink" to="/" onClick={closeMenu}>
+        <NavLink
+          className={({ isActive }) =>
+            `mobileLink ${isActive ? "activeLink" : ""}`
+          }
+          to="/"
+          end
+          onClick={closeMenu}
+        >
           <span className="mobileIcon" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false">
               <path d="M4 11.5 12 5l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z" />
             </svg>
           </span>
           Home
-        </Link>
-        <Link className="mobileLink" to="/programs" onClick={closeMenu}>
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            `mobileLink ${isActive ? "activeLink" : ""}`
+          }
+          to="/programs"
+          onClick={closeMenu}
+        >
           <span className="mobileIcon" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false">
               <path d="M5 4h14a1 1 0 0 1 1 1v14l-3-2-3 2-3-2-3 2-3-2-3 2V5a1 1 0 0 1 1-1z" />
             </svg>
           </span>
           Programs
-        </Link>
-        <Link className="mobileLink" to="/about" onClick={closeMenu}>
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            `mobileLink ${isActive ? "activeLink" : ""}`
+          }
+          to="/about"
+          onClick={closeMenu}
+        >
           <span className="mobileIcon" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false">
               <path d="M12 3a6 6 0 1 1-6 6 6 6 0 0 1 6-6zm0 12c4.4 0 8 2.2 8 4.5V21H4v-1.5C4 17.2 7.6 15 12 15z" />
             </svg>
           </span>
           About
-        </Link>
-        <Link className="mobileLink" to="/contact" onClick={closeMenu}>
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            `mobileLink ${isActive ? "activeLink" : ""}`
+          }
+          to="/contact"
+          onClick={closeMenu}
+        >
           <span className="mobileIcon" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false">
               <path d="M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zm0 2.2 8 5 8-5V8l-8 5-8-5z" />
             </svg>
           </span>
           Contact
-        </Link>
+        </NavLink>
 
         {/* <ThemeToggle /> */}
       </div>

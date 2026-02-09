@@ -77,6 +77,10 @@
   @include respond(md) {
     display: none;
   }
+
+  a {
+    position: relative;
+  }
 }
 
 /* MOBILE MENU – SLIDE FROM LEFT */
@@ -110,6 +114,10 @@
   align-items: center;
   gap: 0.85rem;
   letter-spacing: 0.08em;
+}
+
+.activeLink {
+  color: var(--accent);
 }
 
 .mobileIcon {
