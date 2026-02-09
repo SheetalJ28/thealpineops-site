@@ -3,7 +3,7 @@ import baseUrl from "./constants/baseUrl";
 import Home from "./pages/Home";
 import Programs from "./pages/Programs/Programs";
 import ProgramDetail from "./pages/Programs/ProgramDetail";
-import About from "./pages/About";
+import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";

@@ -1,0 +1,132 @@
+@import "../../styles/mixins";
+
+.about {
+  display: grid;
+  gap: 5rem;
+  padding: 7rem clamp(1.5rem, 4vw, 5rem) 6rem;
+
+  .hero {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    @include respond(lg) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .heroCopy {
+    display: grid;
+    gap: 1.2rem;
+
+    h1 {
+      font-size: clamp(2.4rem, 3vw, 3.4rem);
+      margin: 0;
+    }
+
+    p {
+      color: var(--muted);
+      max-width: 560px;
+    }
+  }
+
+  .kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 600;
+  }
+
+  .heroMedia {
+    min-height: 360px;
+    border-radius: 28px;
+    background: #0f1317;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 30px 70px rgba(7, 9, 10, 0.45);
+  }
+
+  .heroStats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+
+    span {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    p {
+      margin: 0.35rem 0 0;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+  }
+
+  .values {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .valueGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+
+    article {
+      background: rgba(21, 26, 32, 0.6);
+      border-radius: 20px;
+      padding: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    p {
+      color: var(--muted);
+    }
+  }
+
+  .story {
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+
+    @include respond(lg) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .storyMedia img {
+    width: 100%;
+    border-radius: 24px;
+    display: block;
+    box-shadow: 0 25px 60px rgba(7, 9, 10, 0.35);
+  }
+
+  .storyCopy {
+    display: grid;
+    gap: 1rem;
+
+    p {
+      color: var(--muted);
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin: 0;
+      display: grid;
+      gap: 0.6rem;
+      color: var(--text);
+    }
+  }
+}
+
+@include respond(sm) {
+  .about {
+    padding-top: 5.5rem;
+  }
+}
