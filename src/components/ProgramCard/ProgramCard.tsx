@@ -1,15 +1,44 @@
+import { Link } from "react-router-dom";
 import type { Program } from "../../types/Program";
+import baseUrl from "../../constants/baseUrl";
 
 const ProgramCard = (p: Program) => {
+  const statusClass = `status status--${p.status
+    .toLowerCase()
+    .replace(/\s+/g, "-")}`;
+  const imageUrl = p.image
+    ? p.image.startsWith("/")
+      ? `${baseUrl}${p.image.slice(1)}`
+      : p.image
+    : undefined;
+  const imageStyle = imageUrl
+    ? { backgroundImage: `url(${imageUrl})` }
+    : undefined;
+
   return (
-    <div className="program-card">
-      <h3>{p.title}</h3>
-      <p>
-        {p.location} · {p.date}
-      </p>
-      <p>{p.duration}</p>
-      <span className="status">{p.status}</span>
-    </div>
+    <article className="programCard">
+      <div className="media" style={imageStyle}>
+        <span className="category">{p.category}</span>
+      </div>
+      <div>
+        <h3>{p.title}</h3>
+        <p className="summary">{p.summary}</p>
+        <ul className="highlights">
+          {p.highlights.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+        <p className="meta">
+          {p.location} · {p.date} · {p.duration}
+        </p>
+        <div className="footer">
+          <span className={statusClass}>{p.status}</span>
+          <Link className="cta" to={`/programs/${p.slug}`}>
+            View Program
+          </Link>
+        </div>
+      </div>
+    </article>
   );
 };
 

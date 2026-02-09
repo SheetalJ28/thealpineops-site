@@ -2,17 +2,35 @@
   {
     "id": 1,
     "title": "Winter Commando Camp",
+    "slug": "winter-commando-camp",
+    "category": "Field Program",
+    "summary": "High-altitude endurance and cold-weather battle conditioning with live terrain drills.",
+    "highlights": [
+      "Snow operations and mountain navigation",
+      "Night movement, stealth, and recon",
+      "Cold exposure and survival systems"
+    ],
     "location": "Himachal",
     "date": "Jan 2026",
     "duration": "10 Days",
-    "status": "Open"
+    "status": "Open",
+    "image": "/assets/images/main1.jpg"
   },
   {
     "id": 2,
     "title": "Urban Survival Program",
+    "slug": "urban-survival-program",
+    "category": "City Program",
+    "summary": "Urban tactical readiness for dense environments, close-quarters response, and movement.",
+    "highlights": [
+      "CQB movement and situational drills",
+      "Urban navigation and extraction planning",
+      "Operational fitness and rapid response"
+    ],
     "location": "Delhi",
     "date": "Mar 2026",
     "duration": "5 Days",
-    "status": "Coming Soon"
+    "status": "Coming Soon",
+    "image": "/assets/images/main4.jpg"
   }
 ]

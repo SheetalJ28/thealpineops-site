@@ -1,45 +1,30 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import baseUrl from "../../constants/baseUrl";
 import gsap from "gsap";
+import slidesData from "../../data/heroSlides.json";
 // import styles from "./Hero.module.scss";
+
+type HeroSlide = {
+  title: string;
+  copy: string;
+  cta: string;
+  to: string;
+  image: string;
+};
 
 const Hero = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const baseUrl = import.meta.env.BASE_URL || "/";
-
   const slides = useMemo(
-    () => [
-      {
-        title: "About The Alpine Ops",
-        copy: "Built by expedition leaders and former operators. We train calm, capable teams for high-stakes environments.",
-        cta: "Explore our story",
-        to: "/about",
-        image: `${baseUrl}assets/images/main1.jpg`,
-      },
-      {
-        title: "Programs Built for Real Terrain",
-        copy: "Field-tested survival, leadership, and resilience programs designed for teams that operate under pressure.",
-        cta: "View programs",
-        to: "/programs",
-        image: `${baseUrl}assets/images/main2.jpg`,
-      },
-      {
-        title: "Leadership That Holds Under Load",
-        copy: "Decision-making frameworks, trust-building, and accountability systems for modern operators.",
-        cta: "See leadership focus",
-        to: "/programs",
-        image: `${baseUrl}assets/images/main3.jpg`,
-      },
-      {
-        title: "Let’s Plan Your Next Session",
-        copy: "Custom engagements for organizations and individuals. Build a training arc that fits your mission.",
-        cta: "Contact us",
-        to: "/contact",
-        image: `${baseUrl}assets/images/main4.jpg`,
-      },
-    ],
-    [baseUrl],
+    () =>
+      (slidesData as HeroSlide[]).map((slide) => ({
+        ...slide,
+        image: slide.image.startsWith("/")
+          ? `${baseUrl}${slide.image.slice(1)}`
+          : slide.image,
+      })),
+    [],
   );
 
   useLayoutEffect(() => {

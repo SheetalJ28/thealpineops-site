@@ -6,8 +6,14 @@ const Programs = () => {
   const data = programs as Program[];
 
   return (
-    <section>
+    <section className="programs-page">
+      <span className="programs-page__eyebrow">Programs</span>
       <h1>Upcoming Programs</h1>
+      <p className="programs-page__intro">
+        Mission-built training environments designed for real terrain and real
+        pressure. Each program blends conditioning, tactical movement, and
+        fieldcraft with clear progression.
+      </p>
 
       <div className="program-grid">
         {data.map((p) => (

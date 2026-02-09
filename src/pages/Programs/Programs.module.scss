@@ -1,0 +1,76 @@
+.programs-page {
+  padding: 6rem 8vw 4rem;
+
+  h1 {
+    margin-bottom: 0.75rem;
+  }
+
+  .program-grid {
+    display: grid;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+  }
+
+  &__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+    color: $accent;
+    font-weight: 700;
+  }
+
+  &__intro {
+    max-width: 640px;
+    color: $text-muted;
+  }
+}
+
+.program-detail {
+  padding: 6rem 8vw 5rem;
+  display: grid;
+  gap: 2.5rem;
+
+  &__hero {
+    min-height: 320px;
+    border-radius: 24px;
+    background: $bg-card;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.15);
+  }
+
+  &__content {
+    max-width: 720px;
+  }
+
+  &__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: $accent;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem 0 1.5rem;
+    color: $text-muted;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.85rem;
+  }
+
+  &__summary {
+    color: $text-muted;
+    margin-bottom: 1.5rem;
+  }
+}

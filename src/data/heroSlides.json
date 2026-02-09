@@ -1,0 +1,30 @@
+[
+  {
+    "title": "About The Alpine Ops",
+    "copy": "Built by expedition leaders and former operators. We train calm, capable teams for high-stakes environments.",
+    "cta": "Explore our story",
+    "to": "/about",
+    "image": "/assets/images/main1.jpg"
+  },
+  {
+    "title": "Programs Built for Real Terrain",
+    "copy": "Field-tested survival, leadership, and resilience programs designed for teams that operate under pressure.",
+    "cta": "View programs",
+    "to": "/programs",
+    "image": "/assets/images/main2.jpg"
+  },
+  {
+    "title": "Leadership That Holds Under Load",
+    "copy": "Decision-making frameworks, trust-building, and accountability systems for modern operators.",
+    "cta": "See leadership focus",
+    "to": "/programs",
+    "image": "/assets/images/main3.jpg"
+  },
+  {
+    "title": "Let’s Plan Your Next Session",
+    "copy": "Custom engagements for organizations and individuals. Build a training arc that fits your mission.",
+    "cta": "Contact us",
+    "to": "/contact",
+    "image": "/assets/images/main4.jpg"
+  }
+]
