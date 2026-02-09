@@ -1,6 +1,71 @@
-footer {
-  text-align: center;
-  padding: 2rem;
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.footer {
+  display: grid;
+  gap: 1.5rem;
+  padding: 2.5rem clamp(1.5rem, 4vw, 4.5rem);
   color: $text-muted;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   margin-top: auto;
+  justify-items: center;
+
+  @include respond(md) {
+    text-align: center;
+  }
+}
+
+.brand {
+  display: block;
+  font-weight: 700;
+  color: $text-main;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.tagline {
+  margin: 0.5rem 0 0;
+  color: $text-muted;
+  max-width: 420px;
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    color: $text-main;
+    text-decoration: none;
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(15, 20, 24, 0.6);
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.2s ease;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+
+    &:hover {
+      color: $accent;
+      border-color: rgba(198, 161, 91, 0.6);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.copy {
+  font-size: 0.85rem;
 }

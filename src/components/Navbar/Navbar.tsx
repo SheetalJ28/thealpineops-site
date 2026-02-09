@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 // import ThemeToggle from "../ThemeToggle";
-// import styles from "./Navbar.module.scss";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import baseUrl from "../../constants/baseUrl";
 import gsap from "gsap";
 import slidesData from "../../data/heroSlides.json";
-// import styles from "./Hero.module.scss";
 
 type HeroSlide = {
   title: string;

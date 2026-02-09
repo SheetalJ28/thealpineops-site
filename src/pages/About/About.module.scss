@@ -123,6 +123,136 @@
       color: var(--text);
     }
   }
+
+  .founders {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    padding: 2.5rem;
+    border-radius: 28px;
+    background:
+      linear-gradient(135deg, rgba(198, 161, 91, 0.15), rgba(15, 20, 24, 0.85)),
+      rgba(15, 20, 24, 0.7);
+    border: 1px solid rgba(198, 161, 91, 0.25);
+    box-shadow: 0 26px 60px rgba(7, 9, 10, 0.35);
+
+    @include respond(lg) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .foundersCopy {
+    display: grid;
+    gap: 1rem;
+
+    p {
+      color: var(--muted);
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(198, 161, 91, 0.18);
+      border: 1px solid rgba(198, 161, 91, 0.35);
+      color: var(--text);
+      letter-spacing: 0.2em;
+    }
+  }
+
+  .foundersGrid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+
+    article {
+      background: rgba(21, 26, 32, 0.6);
+      border-radius: 20px;
+      padding: 1.25rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+
+      @include respond(sm) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    img {
+      width: 140px;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 16px;
+      display: block;
+      box-shadow: 0 18px 40px rgba(7, 9, 10, 0.35);
+    }
+
+    .foundersInformation {
+      display: grid;
+      gap: 0.6rem;
+
+      h3 {
+        margin: 0;
+      }
+    }
+
+    .founderRole {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .founderIntro {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .founderSocials {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+      margin-top: 0.4rem;
+
+      a {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text);
+        background: rgba(15, 20, 24, 0.6);
+        transition:
+          color 0.2s ease,
+          border-color 0.2s ease,
+          transform 0.2s ease;
+
+        &:hover {
+          color: $accent;
+          border-color: rgba(198, 161, 91, 0.6);
+          transform: translateY(-1px);
+        }
+      }
+
+      svg {
+        width: 18px;
+        height: 18px;
+        display: block;
+      }
+    }
+  }
 }
 
 @include respond(sm) {
