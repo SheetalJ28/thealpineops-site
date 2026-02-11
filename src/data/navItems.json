@@ -1,0 +1,23 @@
+[
+  {
+    "to": "/",
+    "label": "Home",
+    "end": true,
+    "iconPath": "M4 11.5 12 5l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z"
+  },
+  {
+    "to": "/programs",
+    "label": "Programs",
+    "iconPath": "M5 4h14a1 1 0 0 1 1 1v14l-3-2-3 2-3-2-3 2-3-2-3 2V5a1 1 0 0 1 1-1z"
+  },
+  {
+    "to": "/about",
+    "label": "About",
+    "iconPath": "M12 3a6 6 0 1 1-6 6 6 6 0 0 1 6-6zm0 12c4.4 0 8 2.2 8 4.5V21H4v-1.5C4 17.2 7.6 15 12 15z"
+  },
+  {
+    "to": "/contact",
+    "label": "Contact",
+    "iconPath": "M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zm0 2.2 8 5 8-5V8l-8 5-8-5z"
+  }
+]

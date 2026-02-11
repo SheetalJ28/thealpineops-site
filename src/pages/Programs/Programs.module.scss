@@ -1,5 +1,11 @@
+@use "../../styles/variables" as *;
+
 .programs-page {
-  padding: 6rem 8vw 4rem;
+  padding: clamp(20px, 4vw, 40px);
+
+  @media (min-width: 1440px) {
+    padding: 100px;
+  }
 
   h1 {
     margin-bottom: 0.75rem;
@@ -29,9 +35,13 @@
 }
 
 .program-detail {
-  padding: 6rem 8vw 5rem;
+  padding: clamp(20px, 4vw, 40px);
   display: grid;
   gap: 2.5rem;
+
+  @media (min-width: 1440px) {
+    padding: 100px;
+  }
 
   &__hero {
     min-height: 320px;

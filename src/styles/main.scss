@@ -1,12 +1,13 @@
-@import "variables";
-@import "base";
-@import "layout";
-@import "components";
-@import "../pages/Programs/Programs.module.scss";
-@import "../pages/About/About.module.scss";
-@import "../pages/Contact/Contact.module.scss";
+@use "variables";
+@use "base";
+@use "layout";
+@use "components";
+@use "../pages/Programs/Programs.module.scss";
+@use "../pages/About/About.module.scss";
+@use "../pages/Contact/Contact.module.scss";
 
-@import "../components/Hero/Hero.module.scss";
-@import "../components/Navbar/Navbar.module.scss";
-@import "../components/Footer/Footer.module.scss";
-@import "../components//ProgramCard/ProgramCard.module.scss";
+@use "../components/Hero/Hero.module.scss";
+@use "../components/Header/Header.module.scss";
+@use "../components/Navbar/Navbar.module.scss";
+@use "../components/Footer/Footer.module.scss";
+@use "../components//ProgramCard/ProgramCard.module.scss";

@@ -1,9 +1,14 @@
-@import "../../styles/mixins";
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
 
 .about {
   display: grid;
   gap: 5rem;
-  padding: 7rem clamp(1.5rem, 4vw, 5rem) 6rem;
+  padding: clamp(20px, 4vw, 40px);
+
+  @media (min-width: 1440px) {
+    padding: 100px;
+  }
 
   .hero {
     display: grid;
@@ -265,5 +270,15 @@
 @include respond(sm) {
   .about {
     padding-top: 5.5rem;
+
+    .founders {
+      padding: 0;
+      background: none;
+      border: none;
+
+      .kicker {
+        padding: 0.75rem 1rem 0;
+      }
+    }
   }
 }

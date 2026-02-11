@@ -104,21 +104,6 @@ const About = () => {
 
       <div className="founders">
         <span className="kicker">Founders</span>
-        {/* <div className="foundersCopy">
-          
-          <h2>Built by Operators and Expedition Leaders</h2>
-          <p>
-            Alpine Ops was founded by a team of mountain guides and tactical
-            instructors who have led missions across the Himalayas and beyond.
-            Their approach blends field-tested survival, leadership under load,
-            and a respect for the terrain that shapes every program.
-          </p>
-          <p>
-            Together they have trained teams in high-altitude navigation,
-            cold-weather systems, and mission planning for organizations that
-            operate under pressure.
-          </p>
-        </div> */}
         <div className="foundersGrid">
           <article>
             <img
