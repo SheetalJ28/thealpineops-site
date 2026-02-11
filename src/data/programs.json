@@ -11,10 +11,157 @@
       "Cold exposure and survival systems"
     ],
     "location": "Himachal",
-    "date": "Jan 2026",
+    "date": "16th to 21st Feb 2026",
     "duration": "10 Days",
     "status": "Open",
-    "image": "/assets/images/main1.jpg"
+    "image": "/assets/images/main1.jpg",
+    "gallery": [
+      "/assets/images/main1.jpg",
+      "/assets/images/main2.jpg",
+      "/assets/images/main3.jpg"
+    ],
+    "detail": {
+      "eyebrow": "Applied Military Preparation",
+      "expectTitle": "What to expect",
+      "snapshotTitle": "Program snapshot",
+      "snapshot": "This camp is built for candidates and outdoor athletes who want military-style structure, realistic physical stress, and practical fieldcraft under qualified coaching.",
+      "snapshotChips": [
+        "Team missions",
+        "Navigation",
+        "Resilience drills",
+        "Terrain conditioning"
+      ],
+      "factLabels": {
+        "location": "Location",
+        "date": "Date",
+        "duration": "Duration"
+      },
+      "quickFacts": [
+        {
+          "icon": "duration",
+          "label": "Duration",
+          "value": "07 Nights 08 Days"
+        },
+        {
+          "icon": "tourType",
+          "label": "Tour Type",
+          "value": "Expedition Camp"
+        },
+        {
+          "icon": "groupSize",
+          "label": "Group Size",
+          "value": "6-10"
+        },
+        {
+          "icon": "tourGuide",
+          "label": "Tour Guide",
+          "value": "1 Lead + 1 Assistant"
+        }
+      ],
+      "primaryCtaLabel": "Enquire on WhatsApp",
+      "primaryCtaUrl": "https://wa.me/917819983273",
+      "footerNote": "Places are limited and filled on a first-come basis.",
+      "footerCtaLabel": "Contact us for availability",
+      "footerCtaUrl": "https://wa.me/917819983273",
+      "stay": {
+        "title": "Stay & Accommodation",
+        "summary": "Participants stay in shared expedition-style accommodation close to the training zone, with practical amenities and a secure kit area.",
+        "highlights": [
+          "Shared rooms with bedding and basic heating",
+          "Hygienic washroom access and changing area",
+          "Hot meals and hydration support during training hours"
+        ],
+        "images": [
+          "/assets/images/main6.jpg",
+          "/assets/images/main5.jpg",
+          "/assets/images/main7.jpg",
+          "/assets/images/main7.jpg"
+        ]
+      },
+      "trainingPlan": {
+        "title": "Day-by-Day Training Plan",
+        "days": [
+          {
+            "day": "Day 1",
+            "heading": "Arrival, kit checks, and acclimatization",
+            "items": [
+              "Check-in, safety briefing, and camp orientation",
+              "Mobility reset and light terrain conditioning",
+              "Night routine and cold-weather prep"
+            ]
+          },
+          {
+            "day": "Day 2",
+            "heading": "Mountain movement and endurance load",
+            "items": [
+              "Ascend/descend movement drills",
+              "Load carriage intervals and pacing control",
+              "Map familiarization and route planning"
+            ]
+          },
+          {
+            "day": "Day 3",
+            "heading": "Navigation, recon, and team tasks",
+            "items": [
+              "Terrain navigation in small teams",
+              "Observation and silent movement exercises",
+              "After-action review and correction loop"
+            ]
+          },
+          {
+            "day": "Day 4",
+            "heading": "Fieldcraft and survival systems",
+            "items": [
+              "Shelter setup and heat-management protocol",
+              "Water sourcing, ration discipline, and efficiency drills",
+              "Night navigation under fatigue"
+            ]
+          },
+          {
+            "day": "Day 5",
+            "heading": "Final mission simulation and graduation",
+            "items": [
+              "Scenario-based mission combining all modules",
+              "Leadership rotations and team decision-making",
+              "Debrief, personal feedback, and closeout"
+            ]
+          }
+        ]
+      },
+      "inclusionsExclusions": {
+        "title": "Inclusions & Exclusions",
+        "inclusionsTitle": "Inclusions",
+        "exclusionsTitle": "Exclusions",
+        "inclusions": [
+          "Instructor-led training sessions",
+          "Shared accommodation",
+          "Meals during training schedule",
+          "Basic safety and training support",
+          "Program completion certificate"
+        ],
+        "exclusions": [
+          "Travel to and from base location",
+          "Personal clothing and specialized gear",
+          "Personal insurance and medical costs",
+          "Extra snacks and personal purchases",
+          "Optional add-on activities"
+        ]
+      },
+      "joinCriteria": {
+        "whoCanJoinTitle": "Who Can Join",
+        "whoCanJoin": [
+          "Beginners with basic fitness and strong discipline",
+          "Outdoor enthusiasts aged 18+",
+          "Individuals medically fit for moderate to high-intensity activity"
+        ],
+        "whoShouldJoinTitle": "Who Should Join",
+        "whoShouldJoin": [
+          "Aspirants preparing for defence or tactical careers",
+          "Trekkers wanting structured field conditioning",
+          "Professionals seeking resilience, leadership, and mental toughness training"
+        ]
+      }
+    }
   },
   {
     "id": 2,
@@ -28,9 +175,146 @@
       "Operational fitness and rapid response"
     ],
     "location": "Delhi",
-    "date": "Mar 2026",
+    "date": "11th to 15th Mar 2026",
     "duration": "5 Days",
     "status": "Coming Soon",
-    "image": "/assets/images/main4.jpg"
+    "image": "/assets/images/main4.jpg",
+    "gallery": [
+      "/assets/images/main4.jpg",
+      "/assets/images/main5.jpg",
+      "/assets/images/main7.jpg"
+    ],
+    "detail": {
+      "eyebrow": "Urban Operations Readiness",
+      "expectTitle": "What to expect",
+      "snapshotTitle": "Program snapshot",
+      "snapshot": "Designed for dense urban environments with instructor-led close-quarters movement, team decision drills, and fitness tasks under time pressure.",
+      "snapshotChips": [
+        "CQB basics",
+        "Urban navigation",
+        "Rapid response",
+        "Team coordination"
+      ],
+      "factLabels": {
+        "location": "Location",
+        "date": "Date",
+        "duration": "Duration"
+      },
+      "quickFacts": [
+        {
+          "icon": "duration",
+          "label": "Duration",
+          "value": "04 Nights 05 Days"
+        },
+        {
+          "icon": "tourType",
+          "label": "Tour Type",
+          "value": "Urban Tactical Program"
+        },
+        {
+          "icon": "groupSize",
+          "label": "Group Size",
+          "value": "6-10"
+        },
+        {
+          "icon": "tourGuide",
+          "label": "Tour Guide",
+          "value": "1"
+        }
+      ],
+      "primaryCtaLabel": "Join Waitlist on WhatsApp",
+      "primaryCtaUrl": "https://wa.me/917819983273",
+      "footerNote": "Early interest gives priority access when registrations open.",
+      "footerCtaLabel": "Message us for launch details",
+      "footerCtaUrl": "https://wa.me/917819983273",
+      "stay": {
+        "title": "Stay & Accommodation",
+        "summary": "Urban program accommodation is arranged in partner facilities with quick access to training locations and essential recovery support.",
+        "highlights": [
+          "Twin-share rooms in city training base",
+          "Early breakfast and evening meal options",
+          "Dedicated briefing area for daily debriefs"
+        ],
+        "images": [
+          "/assets/images/main4.jpg",
+          "/assets/images/main3.jpg",
+          "/assets/images/main2.jpg"
+        ]
+      },
+      "trainingPlan": {
+        "title": "Day-by-Day Training Plan",
+        "days": [
+          {
+            "day": "Day 1",
+            "heading": "Induction and baseline assessment",
+            "items": [
+              "Arrival, rules of engagement, and safety setup",
+              "Urban movement baseline and reaction drills",
+              "Evening debrief and team assignments"
+            ]
+          },
+          {
+            "day": "Day 2",
+            "heading": "CQB fundamentals and space control",
+            "items": [
+              "Room-entry mechanics and communication calls",
+              "Corridor movement and corner discipline",
+              "Timed close-quarters scenarios"
+            ]
+          },
+          {
+            "day": "Day 3",
+            "heading": "Navigation, extraction, and pressure tasks",
+            "items": [
+              "Urban route planning and contingency setup",
+              "Casualty extraction and carry drills",
+              "Decision-making under fatigue"
+            ]
+          },
+          {
+            "day": "Day 4",
+            "heading": "Integrated scenario day",
+            "items": [
+              "Multi-stage mission using prior modules",
+              "Team leadership rotations",
+              "Performance review and development plan"
+            ]
+          }
+        ]
+      },
+      "inclusionsExclusions": {
+        "title": "Inclusions & Exclusions",
+        "inclusionsTitle": "Inclusions",
+        "exclusionsTitle": "Exclusions",
+        "inclusions": [
+          "Urban tactical training blocks",
+          "Partner accommodation arrangement",
+          "Daily briefing and debrief support",
+          "Structured drills and assessment",
+          "Priority update access for next batch"
+        ],
+        "exclusions": [
+          "Transport within or to the city",
+          "Personal tactical kit purchases",
+          "Meals beyond scheduled program meals",
+          "Medical and travel insurance",
+          "Private one-to-one coaching add-ons"
+        ]
+      },
+      "joinCriteria": {
+        "whoCanJoinTitle": "Who Can Join",
+        "whoCanJoin": [
+          "Anyone aged 18+ with basic functional fitness",
+          "Participants comfortable with team drills and urban movement",
+          "Individuals cleared for moderate-intensity physical sessions"
+        ],
+        "whoShouldJoinTitle": "Who Should Join",
+        "whoShouldJoin": [
+          "Candidates targeting police/defence preparation",
+          "Individuals wanting practical urban readiness skills",
+          "Teams and professionals building decision-making under pressure"
+        ]
+      }
+    }
   }
 ]
