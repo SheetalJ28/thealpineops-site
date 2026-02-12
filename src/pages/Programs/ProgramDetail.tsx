@@ -56,20 +56,74 @@ const ProgramDetail = () => {
   );
 
   const [galleryState, setGalleryState] = useState({ slug: "", index: 0 });
-  const [previewImage, setPreviewImage] = useState<string | null>(null);
+  const [stayGalleryState, setStayGalleryState] = useState({
+    slug: "",
+    index: 0,
+  });
+  const [previewState, setPreviewState] = useState<{
+    gallery: "program" | "stay";
+    index: number;
+  } | null>(null);
+  const [openPlanDaysBySlug, setOpenPlanDaysBySlug] = useState<
+    Record<string, Record<string, boolean>>
+  >({});
 
   useEffect(() => {
-    if (!previewImage) return;
+    if (!previewState) return;
 
-    const onEsc = (event: KeyboardEvent) => {
+    const previewImages =
+      previewState.gallery === "program" ? galleryImages : stayImages;
+    if (!previewImages.length) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setPreviewImage(null);
+        setPreviewState(null);
+        return;
+      }
+
+      if (event.key === "ArrowLeft") {
+        setPreviewState((current) => {
+          if (!current) return current;
+          const images = current.gallery === "program" ? galleryImages : stayImages;
+          if (!images.length) return current;
+          return {
+            ...current,
+            index:
+              current.index === 0 ? images.length - 1 : Math.max(current.index - 1, 0),
+          };
+        });
+        return;
+      }
+
+      if (event.key === "ArrowRight") {
+        setPreviewState((current) => {
+          if (!current) return current;
+          const images = current.gallery === "program" ? galleryImages : stayImages;
+          if (!images.length) return current;
+          return {
+            ...current,
+            index: current.index === images.length - 1 ? 0 : current.index + 1,
+          };
+        });
       }
     };
 
-    window.addEventListener("keydown", onEsc);
-    return () => window.removeEventListener("keydown", onEsc);
-  }, [previewImage]);
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [previewState, galleryImages, stayImages]);
+
+  const currentSlug = slug ?? "";
+  const defaultOpenPlanDays = useMemo(
+    () =>
+      Object.fromEntries(
+        (program?.detail.trainingPlan.days ?? []).map((planDay, index) => [
+          planDay.day,
+          index === 0,
+        ]),
+      ),
+    [program],
+  );
+  const openPlanDays = openPlanDaysBySlug[currentSlug] ?? defaultOpenPlanDays;
 
   const activeIndex =
     galleryState.slug === (slug ?? "")
@@ -87,6 +141,45 @@ const ProgramDetail = () => {
       slug: slug ?? "",
       index: prev.index === galleryImages.length - 1 ? 0 : prev.index + 1,
     }));
+  const activeStayIndex =
+    stayGalleryState.slug === (slug ?? "")
+      ? Math.min(stayGalleryState.index, Math.max(stayImages.length - 1, 0))
+      : 0;
+  const activeStayImage = stayImages[activeStayIndex];
+  const hasMultipleStayImages = stayImages.length > 1;
+  const showPrevStayImage = () =>
+    setStayGalleryState((prev) => ({
+      slug: slug ?? "",
+      index: prev.index === 0 ? stayImages.length - 1 : prev.index - 1,
+    }));
+  const showNextStayImage = () =>
+    setStayGalleryState((prev) => ({
+      slug: slug ?? "",
+      index: prev.index === stayImages.length - 1 ? 0 : prev.index + 1,
+    }));
+  const previewImages =
+    previewState?.gallery === "program" ? galleryImages : stayImages;
+  const previewIndex = previewState
+    ? Math.min(previewState.index, Math.max(previewImages.length - 1, 0))
+    : 0;
+  const previewImage = previewImages[previewIndex];
+  const hasMultiplePreviewImages = previewImages.length > 1;
+  const showPrevPreviewImage = () =>
+    setPreviewState((current) => {
+      if (!current || !previewImages.length) return current;
+      return {
+        ...current,
+        index: current.index === 0 ? previewImages.length - 1 : current.index - 1,
+      };
+    });
+  const showNextPreviewImage = () =>
+    setPreviewState((current) => {
+      if (!current || !previewImages.length) return current;
+      return {
+        ...current,
+        index: current.index === previewImages.length - 1 ? 0 : current.index + 1,
+      };
+    });
 
   if (!program) {
     return (
@@ -127,7 +220,9 @@ const ProgramDetail = () => {
                 className="program-detail__mainImage"
                 src={activeImage}
                 alt={`${program.title} image ${activeIndex + 1}`}
-                onClick={() => setPreviewImage(activeImage)}
+                onClick={() =>
+                  setPreviewState({ gallery: "program", index: activeIndex })
+                }
               />
             )}
             {hasMultipleImages && (
@@ -164,7 +259,6 @@ const ProgramDetail = () => {
                   className={`program-detail__thumb ${activeIndex === index ? "isActive" : ""}`}
                   onClick={() => {
                     setGalleryState({ slug: slug ?? "", index });
-                    setPreviewImage(image);
                   }}
                   aria-label={`Show program image ${index + 1}`}
                   aria-pressed={activeIndex === index}
@@ -274,35 +368,109 @@ const ProgramDetail = () => {
             ))}
           </ul>
 
-          <div className="program-detail__stayImages">
-            {stayImages.map((image, index) => (
-              <div
-                className="program-detail__stayImage"
-                key={`${image}-${index}`}
-              >
+          {activeStayImage && (
+            <div className="program-detail__stayGallery">
+              <div className="program-detail__stayMedia">
                 <img
-                  src={image}
-                  alt={`${program.title} accommodation ${index + 1}`}
-                  onClick={() => setPreviewImage(image)}
+                  className="program-detail__stayMainImage"
+                  src={activeStayImage}
+                  alt={`${program.title} accommodation ${activeStayIndex + 1}`}
+                  onClick={() =>
+                    setPreviewState({ gallery: "stay", index: activeStayIndex })
+                  }
                 />
+                {hasMultipleStayImages && (
+                  <>
+                    <button
+                      type="button"
+                      className="program-detail__galleryNav program-detail__galleryNav--prev"
+                      onClick={showPrevStayImage}
+                      aria-label="Previous accommodation image"
+                    >
+                      ‹
+                    </button>
+                    <button
+                      type="button"
+                      className="program-detail__galleryNav program-detail__galleryNav--next"
+                      onClick={showNextStayImage}
+                      aria-label="Next accommodation image"
+                    >
+                      ›
+                    </button>
+                  </>
+                )}
               </div>
-            ))}
-          </div>
+
+              {hasMultipleStayImages && (
+                <div
+                  className="program-detail__stayThumbs"
+                  aria-label="Accommodation gallery"
+                >
+                  {stayImages.map((image, index) => (
+                    <button
+                      key={`${image}-${index}`}
+                      type="button"
+                      className={`program-detail__thumb ${activeStayIndex === index ? "isActive" : ""}`}
+                      onClick={() => {
+                        setStayGalleryState({ slug: slug ?? "", index });
+                      }}
+                      aria-label={`Show accommodation image ${index + 1}`}
+                      aria-pressed={activeStayIndex === index}
+                    >
+                      <img src={image} alt="" />
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </article>
 
       <article className="program-detail__plan">
         <h2>{program.detail.trainingPlan.title}</h2>
         <div className="program-detail__planGrid">
-          {program.detail.trainingPlan.days.map((planDay) => (
+          {program.detail.trainingPlan.days.map((planDay, index) => (
             <section className="program-detail__planDay" key={planDay.day}>
-              <div className="program-detail__planDayLabel">{planDay.day}</div>
-              <h3>{planDay.heading}</h3>
-              <ul className="program-detail__list">
-                {planDay.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+              <button
+                type="button"
+                className="program-detail__planDayToggle"
+                onClick={() =>
+                  setOpenPlanDaysBySlug((current) => {
+                    const currentPlanDays =
+                      current[currentSlug] ?? defaultOpenPlanDays;
+                    return {
+                      ...current,
+                      [currentSlug]: {
+                        ...currentPlanDays,
+                        [planDay.day]: !currentPlanDays[planDay.day],
+                      },
+                    };
+                  })
+                }
+                aria-expanded={Boolean(openPlanDays[planDay.day])}
+                aria-controls={`plan-day-${index}`}
+              >
+                <span className="program-detail__planDayLabel">{planDay.day}</span>
+                <span className="program-detail__planDayHeading">
+                  {planDay.heading}
+                </span>
+                <span className="program-detail__planDayChevron" aria-hidden="true">
+                  {openPlanDays[planDay.day] ? "−" : "+"}
+                </span>
+              </button>
+              {openPlanDays[planDay.day] && (
+                <div
+                  className="program-detail__planDayContent"
+                  id={`plan-day-${index}`}
+                >
+                  <ul className="program-detail__list">
+                    {planDay.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </section>
           ))}
         </div>
@@ -366,18 +534,44 @@ const ProgramDetail = () => {
         </div>
       </div>
 
-      {previewImage && (
+      {previewState && previewImage && (
         <div
           className="program-detail__lightbox"
           role="dialog"
           aria-modal="true"
           aria-label="Image preview"
-          onClick={() => setPreviewImage(null)}
+          onClick={() => setPreviewState(null)}
         >
+          {hasMultiplePreviewImages && (
+            <>
+              <button
+                type="button"
+                className="program-detail__lightboxNav program-detail__lightboxNav--prev"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  showPrevPreviewImage();
+                }}
+                aria-label="Previous preview image"
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                className="program-detail__lightboxNav program-detail__lightboxNav--next"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  showNextPreviewImage();
+                }}
+                aria-label="Next preview image"
+              >
+                ›
+              </button>
+            </>
+          )}
           <button
             type="button"
             className="program-detail__lightboxClose"
-            onClick={() => setPreviewImage(null)}
+            onClick={() => setPreviewState(null)}
             aria-label="Close preview"
           >
             ×

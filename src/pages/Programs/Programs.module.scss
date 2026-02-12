@@ -412,11 +412,21 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
     background: rgba(255, 255, 255, 0.03);
     padding: 0.9rem;
+  }
 
-    h3 {
-      margin: 0.4rem 0 0.65rem;
-      font-size: 1rem;
-    }
+  &__planDayToggle {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.65rem;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    text-align: left;
+    padding: 0;
+    cursor: pointer;
+
   }
 
   &__planDayLabel {
@@ -430,6 +440,28 @@
     font-size: 0.72rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+  }
+
+  &__planDayChevron {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: $text-muted;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  &__planDayHeading {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  &__planDayContent {
+    margin-top: 0.65rem;
   }
 
   &__includeExclude {
@@ -497,25 +529,33 @@
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   }
 
-  &__stayImages {
+  &__stayGallery {
     display: grid;
     gap: 0.65rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  &__stayImage {
-    border-radius: 12px;
+  &__stayMedia {
+    position: relative;
+    border-radius: 16px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    min-height: 110px;
+    background: rgba(255, 255, 255, 0.03);
+    aspect-ratio: 16 / 10;
+  }
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      cursor: zoom-in;
-    }
+  &__stayMainImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: zoom-in;
+  }
+
+  &__stayThumbs {
+    display: flex;
+    gap: 0.55rem;
+    overflow-x: auto;
+    padding: 0.2rem 0;
   }
 
   &__lightbox {
@@ -538,6 +578,32 @@
     border: 1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
     cursor: default;
+  }
+
+  &__lightboxNav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(14, 18, 22, 0.75);
+    color: #fff;
+    font-size: 1.8rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  &__lightboxNav--prev {
+    left: 1rem;
+  }
+
+  &__lightboxNav--next {
+    right: 1rem;
   }
 
   &__lightboxClose {

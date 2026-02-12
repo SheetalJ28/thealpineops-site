@@ -2,17 +2,64 @@
 @use "../../styles/mixins" as *;
 
 .footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: grid;
-  gap: 1.5rem;
   padding: 2.5rem clamp(1.5rem, 4vw, 4.5rem);
   color: $text-muted;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
   margin-top: auto;
-  justify-items: center;
 
   @include respond(md) {
     text-align: center;
   }
+}
+
+.footer__bg {
+  position: absolute;
+  inset: -3.5rem -1.9rem -1.9rem;
+  z-index: -2;
+  background-size: cover;
+  background-position: center bottom;
+  transform: scale(1.05);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.35) 24%,
+    rgba(0, 0, 0, 0.75) 55%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.35) 24%,
+    rgba(0, 0, 0, 0.75) 55%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+.footer__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(
+      circle at top center,
+      rgba(198, 161, 91, 0.12),
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(8, 10, 12, 0.08) 0%,
+      rgba(8, 10, 12, 0.42) 34%,
+      rgba(8, 10, 12, 0.88) 100%
+    );
+}
+
+.footer__content {
+  display: grid;
+  gap: 1.5rem;
+  justify-items: center;
 }
 
 .brand {

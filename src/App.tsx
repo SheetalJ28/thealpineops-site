@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import baseUrl from "./constants/baseUrl";
 import Home from "./pages/Home";
 import Programs from "./pages/Programs/Programs";
@@ -10,11 +10,22 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname]);
+
+  return null;
+};
+
 const App = () => {
   const [collapsed, setCollapsed] = useState(true);
 
   return (
     <BrowserRouter basename={baseUrl}>
+      <ScrollToTop />
       <div className="appShell">
         <Header />
         <Navbar

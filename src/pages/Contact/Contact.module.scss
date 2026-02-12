@@ -53,6 +53,25 @@
     margin: 0;
     font-weight: 500;
   }
+
+  a[href*="google.com/maps"] {
+    display: inline-flex;
+    margin-top: 0.45rem;
+    color: #e9d7ac;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.78rem;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(233, 215, 172, 0.65);
+    width: fit-content;
+    transition: color 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+      color: #f7e7c5;
+      border-color: #f7e7c5;
+    }
+  }
 }
 
 .form {
