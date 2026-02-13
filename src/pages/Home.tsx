@@ -1,9 +1,15 @@
 import Hero from "../components/Hero/Hero";
+import InstaStories from "../components/InstaStories/InstaStories";
 
 const Home = () => {
   return (
     <>
-      <Hero />
+      <div className="homeDesktopOnly">
+        <Hero />
+      </div>
+      <div className="homeMobileTabletOnly">
+        <InstaStories />
+      </div>
       <section>
         <h2>Our Philosophy</h2>
         <p>

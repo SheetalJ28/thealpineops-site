@@ -42,18 +42,6 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background:
-    radial-gradient(
-      circle at top center,
-      rgba(198, 161, 91, 0.12),
-      transparent 55%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(8, 10, 12, 0.08) 0%,
-      rgba(8, 10, 12, 0.42) 34%,
-      rgba(8, 10, 12, 0.88) 100%
-    );
 }
 
 .footer__content {

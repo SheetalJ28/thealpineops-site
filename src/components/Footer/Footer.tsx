@@ -56,7 +56,12 @@ const Footer = () => {
               />
             </svg>
           </a>
-          <a href="https://x.com" target="_blank" rel="noreferrer" aria-label="X">
+          <a
+            href="https://x.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="X"
+          >
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
                 d="M18.6 3H21l-6.7 7.7L22 21h-6.2l-4.8-6.2L5.9 21H3.4l7.2-8.3L2 3h6.3l4.3 5.7Zm-1.1 16.2h1.4L7.6 4.7H6.1Z"

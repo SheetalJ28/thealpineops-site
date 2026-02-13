@@ -21,3 +21,21 @@ section {
     padding: 100px;
   }
 }
+
+.homeDesktopOnly {
+  display: block;
+}
+
+.homeMobileTabletOnly {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .homeDesktopOnly {
+    display: none;
+  }
+
+  .homeMobileTabletOnly {
+    display: block;
+  }
+}
