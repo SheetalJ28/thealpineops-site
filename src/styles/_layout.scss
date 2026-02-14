@@ -39,3 +39,21 @@ section {
     display: block;
   }
 }
+
+.mobileOnly {
+  display: none;
+}
+
+.hideOnMobile {
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .mobileOnly {
+    display: block;
+  }
+
+  .hideOnMobile {
+    display: none;
+  }
+}

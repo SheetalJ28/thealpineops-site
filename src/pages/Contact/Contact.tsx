@@ -1,14 +1,18 @@
 import { useState } from "react";
 
-const CONTACT_EMAIL = "contact@thealpineops.com";
-const HEADQUARTERS_ADDRESS =
-  "313, Vijay Park Extm. Lane 14, Dehradun, Uttarakhand, Pin 248001., Dehra Dun, Uttaranchal 248001, IN";
+const CONTACT_EMAIL = "alpineopsexped@gmail.com";
+const HEADQUARTERS_ADDRESS = `Alpine Operations and expeditions 
+5, Peepal chowk
+Miyanwala 
+Dehradun 
+248005 IN`;
 const HEADQUARTERS_MAP_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(HEADQUARTERS_ADDRESS)}`;
 
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [company, setCompany] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [interest, setInterest] = useState("");
   const [message, setMessage] = useState("");
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -17,7 +21,8 @@ const Contact = () => {
     const body = [
       `Name: ${name || "-"}`,
       `Email: ${email || "-"}`,
-      `Organization: ${company || "-"}`,
+      `Mobile Number: ${mobile || "-"}`,
+      `Training/Trek/Expedition of Interest: ${interest || "-"}`,
       "",
       message || "No message provided.",
     ].join("\n");
@@ -32,12 +37,12 @@ const Contact = () => {
   return (
     <section className="contact">
       <div className="intro">
-        <span className="kicker">Contact us</span>
-        <h1>Build the next mission-ready training arc.</h1>
-        <p>
+        {/* <span className="kicker">Contact us</span> */}
+        <h1>Reach out to headquarters</h1>
+        {/* <p>
           Tell us about your team, timeline, and goals. We will reply with
           program options, availability, and a custom plan.
-        </p>
+        </p> */}
         <div className="details">
           <div>
             <span>Direct line</span>
@@ -82,19 +87,29 @@ const Contact = () => {
           </label>
         </div>
         <label>
-          Organization
+          Mobile Number
           <input
-            name="company"
-            placeholder="Team or company name"
-            value={company}
-            onChange={(event) => setCompany(event.target.value)}
+            type="tel"
+            name="mobile"
+            placeholder="Your mobile number"
+            value={mobile}
+            onChange={(event) => setMobile(event.target.value)}
+          />
+        </label>
+        <label>
+          Training/Trek/Expedition of Interest
+          <input
+            name="interest"
+            placeholder="Program you're interested in"
+            value={interest}
+            onChange={(event) => setInterest(event.target.value)}
           />
         </label>
         <label>
           Message
           <textarea
             name="message"
-            placeholder="Share your goals, group size, and dates."
+            placeholder="Share any comments or message"
             rows={6}
             value={message}
             onChange={(event) => setMessage(event.target.value)}

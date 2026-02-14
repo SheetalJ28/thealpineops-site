@@ -1,0 +1,85 @@
+.parallaxSection {
+  transform: translate3d(0, var(--section-parallax, 0), 0);
+  will-change: transform;
+}
+
+.aboutSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: left;
+  margin: 2rem auto 0;
+  margin-top: 4rem;
+  max-width: 1080px;
+  padding: 0 1rem;
+
+  p {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+}
+
+.aboutLogo {
+  max-height: 200px;
+  width: auto;
+}
+
+.googleReviews {
+  max-width: 1080px;
+  margin: 2.5rem auto 0;
+  padding: 0 1rem 2.5rem;
+}
+
+.reviewsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+
+  h2 {
+    margin: 0;
+  }
+
+  a {
+    color: #c6a15b;
+    text-decoration: none;
+    font-weight: 600;
+  }
+}
+
+.reviewsGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.reviewCard {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 1rem;
+  background: rgba(13, 18, 22, 0.72);
+}
+
+.reviewStars {
+  margin: 0 0 0.4rem;
+  color: #f4c542;
+  letter-spacing: 0.08em;
+}
+
+.reviewCopy {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.reviewAuthor {
+  margin: 0.75rem 0 0;
+  font-weight: 700;
+}
+
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+  .parallaxSection {
+    transform: none;
+  }
+}

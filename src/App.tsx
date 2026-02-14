@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import baseUrl from "./constants/baseUrl";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import Programs from "./pages/Programs/Programs";
 import ProgramDetail from "./pages/Programs/ProgramDetail";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
+import Blogs from "./pages/Blogs/Blogs";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -38,6 +39,7 @@ const App = () => {
             <Route path="/programs" element={<Programs />} />
             <Route path="/programs/:slug" element={<ProgramDetail />} />
             <Route path="/about" element={<About />} />
+            <Route path="/blogs" element={<Blogs />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
           <Footer />

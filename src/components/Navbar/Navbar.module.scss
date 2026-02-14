@@ -165,13 +165,19 @@ $header-height: 72px;
   display: none;
 
   @include respond(md) {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    display: flex;
     align-items: center;
+    gap: 0.35rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
   }
 }
 
 .mobileLink {
+  flex: 0 0 auto;
+  min-width: 84px;
   min-height: 3.2rem;
   border-radius: 12px;
   display: flex;
