@@ -53,12 +53,12 @@ const Header = () => {
             </Link>
           )}
           <div className="header-title-section">
-            <b className="headerTitle hideOnMobile">
+            <b className="headerTitle">
               Alpine <span className="operations">operations</span> and
               expeditions
             </b>
             {/* <br /> */}
-            <span className="headerSubTitle hideOnMobile">
+            <span className="headerSubTitle">
               Nature's Wisdom, Military Mindset
             </span>
           </div>

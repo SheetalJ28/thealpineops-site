@@ -37,12 +37,7 @@ const Contact = () => {
   return (
     <section className="contact">
       <div className="intro">
-        {/* <span className="kicker">Contact us</span> */}
         <h1>Reach out to headquarters</h1>
-        {/* <p>
-          Tell us about your team, timeline, and goals. We will reply with
-          program options, availability, and a custom plan.
-        </p> */}
         <div className="details">
           <div>
             <span>Direct line</span>

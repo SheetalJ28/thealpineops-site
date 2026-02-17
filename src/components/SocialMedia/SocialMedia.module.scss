@@ -28,6 +28,7 @@
 
 .header {
   gap: 0.55rem;
+  margin-left: auto;
 
   a {
     color: var(--text);
@@ -49,13 +50,6 @@
     a {
       width: 30px;
       height: 30px;
-    }
-  }
-
-  @include respond(md) {
-    .linkedIn,
-    .whatsApp {
-      display: none;
     }
   }
 }

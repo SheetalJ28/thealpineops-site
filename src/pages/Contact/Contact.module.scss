@@ -21,18 +21,6 @@
     font-size: 2.6rem;
     max-width: 560px;
   }
-
-  p {
-    max-width: 520px;
-    color: var(--muted);
-  }
-}
-
-.kicker {
-  text-transform: uppercase;
-  letter-spacing: 0.35em;
-  font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.55);
 }
 
 .details {
@@ -65,7 +53,9 @@
     text-decoration: none;
     border-bottom: 1px solid rgba(233, 215, 172, 0.65);
     width: fit-content;
-    transition: color 0.2s ease, border-color 0.2s ease;
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease;
 
     &:hover {
       color: #f7e7c5;
