@@ -2,6 +2,30 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
+## Instagram Stories Sync (GitHub Pages Safe)
+
+This project can sync Instagram stories into `public/ig-stories.json` without exposing tokens in the browser.
+
+### How it works
+
+1. GitHub Action runs every 30 minutes.
+2. Action calls Instagram Graph API with repository secrets.
+3. Action updates `public/ig-stories.json` and commits it.
+4. React fetches that JSON at runtime.
+
+### Required GitHub Secrets
+
+- `IG_USER_ID`
+- `IG_ACCESS_TOKEN`
+
+### Manual sync
+
+```bash
+npm run sync:instagram
+```
+
+If you publish with `npm run deploy` to `gh-pages`, run deploy after sync so the updated JSON is included in the live `dist` output.
+
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
