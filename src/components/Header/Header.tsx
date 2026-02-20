@@ -52,7 +52,12 @@ const Header = () => {
               />
             </Link>
           )}
-          <div className="header-title-section">
+          <Link
+            className="header-title-section"
+            to="/"
+            title="The Alpine Ops homepage"
+            aria-label="Go to homepage"
+          >
             <b className="headerTitle">
               Alpine <span className="operations">operations</span> and
               expeditions
@@ -61,7 +66,7 @@ const Header = () => {
             <span className="headerSubTitle">
               Nature's Wisdom, Military Mindset
             </span>
-          </div>
+          </Link>
         </div>
 
         <SocialMedia variant="header" />
@@ -75,7 +80,7 @@ const Header = () => {
         aria-label="Contact us on WhatsApp at +91 78199 83273"
         title="Contact Us"
       >
-        <span className="stickyContactLabel">WhatsApp Us</span>
+        <span className="stickyContactLabel">Enquire on Whatsapp</span>
         <span className="whatsappIcon" aria-hidden="true">
           <img src={`${baseUrl}assets/images/svg/whatsapp.svg`} alt="" />
         </span>

@@ -1,0 +1,200 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.mountain-pro {
+  padding: clamp(20px, 4vw, 40px);
+  display: grid;
+  gap: 2rem;
+
+  @media (min-width: 1440px) {
+    padding: 100px;
+  }
+
+  &__hero {
+    display: grid;
+    gap: 0.8rem;
+    padding: 2rem;
+    border-radius: 24px;
+    border: 1px solid rgba(198, 161, 91, 0.28);
+    background:
+      linear-gradient(135deg, rgba(198, 161, 91, 0.2), rgba(12, 15, 19, 0.9)),
+      rgba(12, 15, 19, 0.92);
+  }
+
+  &__eyebrow {
+    margin: 0;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: $accent;
+    font-weight: 700;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(1.9rem, 2.8vw, 2.9rem);
+  }
+
+  h2,
+  h3,
+  p {
+    margin: 0;
+  }
+
+  &__intro {
+    max-width: 760px;
+    color: $text-muted;
+  }
+
+  &__section {
+    display: grid;
+    gap: 0.8rem;
+
+    p {
+      color: $text-muted;
+      max-width: 900px;
+    }
+  }
+
+  &__section--altitude {
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    background: rgba(20, 24, 29, 0.72);
+    padding: 1.25rem;
+  }
+
+  &__cards {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    article {
+      display: grid;
+      gap: 0.9rem;
+      border-radius: 18px;
+      padding: 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      background: rgba(20, 24, 29, 0.72);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1rem;
+      display: grid;
+      gap: 0.45rem;
+      color: $text-muted;
+    }
+  }
+
+  &__planGrid {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  &__learnGrid {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  &__learnCard {
+    display: grid;
+    gap: 0.55rem;
+    border-radius: 16px;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    background: rgba(20, 24, 29, 0.62);
+
+    p {
+      color: $text-muted;
+    }
+  }
+
+  &__planCard {
+    display: grid;
+    gap: 0.55rem;
+    border-radius: 16px;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    background: rgba(20, 24, 29, 0.62);
+
+    p {
+      color: $text-muted;
+    }
+  }
+
+  &__day {
+    color: $accent !important;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  &__contact {
+    display: grid;
+    gap: 0.9rem;
+    border-radius: 20px;
+    border: 1px solid rgba(198, 161, 91, 0.3);
+    background: rgba(16, 20, 25, 0.85);
+    padding: 1.35rem;
+
+    p {
+      color: $text-muted;
+    }
+  }
+
+  &__ctaRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.04);
+    color: $text-main;
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+  }
+
+  &__cta--whatsapp {
+    background: #25d366;
+    border-color: rgba(37, 211, 102, 0.6);
+    color: #0b0e11;
+  }
+
+  @include respond(lg) {
+    &__cards {
+      grid-template-columns: 1fr;
+    }
+
+    &__planGrid {
+      grid-template-columns: 1fr;
+    }
+
+    &__learnGrid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @include respond(sm) {
+    padding-top: 5.5rem;
+
+    &__hero,
+    &__section--altitude,
+    &__contact {
+      padding: 1rem;
+    }
+  }
+}

@@ -1,29 +1,20 @@
 import { useEffect, useRef } from "react";
 import Hero from "../../components/Hero/Hero";
+import HomeReviews from "../../components/HomeReviews/HomeReviews";
 import baseUrl from "../../constants/baseUrl";
+import reviewsData from "../../data/reviews.json";
 import styles from "./Home.module.scss";
+
+type ReviewItem = {
+  name: string;
+  review: string;
+};
 
 const Home = () => {
   const aboutRef = useRef<HTMLElement>(null);
   const reviewsRef = useRef<HTMLElement>(null);
 
-  const reviews = [
-    {
-      name: "Arjun S.",
-      review:
-        "Well-structured training and strong leadership on terrain. The team pushed us safely beyond our comfort zone.",
-    },
-    {
-      name: "Neha R.",
-      review:
-        "A disciplined outdoor experience with clear instruction, great planning, and excellent group support.",
-    },
-    {
-      name: "Vikram T.",
-      review:
-        "Professional, practical, and intense in the best way. Highly recommended for mindset and endurance training.",
-    },
-  ];
+  const reviews = reviewsData as ReviewItem[];
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
@@ -106,32 +97,11 @@ const Home = () => {
           that push limits and create legends.
         </p>
       </section>
-      <section
-        ref={reviewsRef}
-        className={`${styles.googleReviews} ${styles.parallaxSection}`}
-      >
-        <div className={styles.reviewsHeader}>
-          <h2>Google Reviews</h2>
-          <a
-            href="https://www.google.com/search?q=The+Alpine+Ops+reviews"
-            target="_blank"
-            rel="noreferrer"
-          >
-            View on Google
-          </a>
-        </div>
-        <div className={styles.reviewsGrid}>
-          {reviews.map((item) => (
-            <article key={item.name} className={styles.reviewCard}>
-              <p className={styles.reviewStars} aria-label="5 star review">
-                ★★★★★
-              </p>
-              <p className={styles.reviewCopy}>{item.review}</p>
-              <p className={styles.reviewAuthor}>{item.name}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+      <HomeReviews
+        sectionRef={reviewsRef}
+        className={styles.parallaxSection}
+        reviews={reviews}
+      />
     </>
   );
 };

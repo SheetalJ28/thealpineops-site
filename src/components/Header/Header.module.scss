@@ -33,6 +33,8 @@
   .header-title-section {
     display: flex;
     flex-direction: column;
+    text-decoration: none;
+    color: inherit;
   }
 }
 
@@ -102,6 +104,10 @@
   letter-spacing: 0.02em;
   font-weight: 600;
   text-decoration: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
 
   @include respond(md) {
     right: 0.75rem;
@@ -113,9 +119,16 @@
 
   &:hover .stickyContactLabel,
   &:focus-visible .stickyContactLabel {
-    max-width: 6.5rem;
+    max-width: 11.5rem;
     opacity: 1;
     margin-right: 0.1rem;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background: #1aa84f;
+    color: #ffffff;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
   }
 }
 
