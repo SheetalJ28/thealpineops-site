@@ -32,7 +32,7 @@ const ProgramCard = (p: Program) => {
           {p.location} · {p.date} · {p.duration}
         </p>
         <div className="footer">
-          <span className={statusClass}>{p.status}</span>
+          <span className={statusClass}>Registration {p.status}</span>
           <Link className="cta" to={`/programs/${p.slug}`}>
             View Program
           </Link>

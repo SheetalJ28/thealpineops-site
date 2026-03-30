@@ -24,33 +24,21 @@
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    padding: 0.3rem 0.7rem;
-    border-radius: 999px;
     font-size: 0.85rem;
     font-weight: 600;
     color: $bg-card;
-    background: rgba(198, 161, 91, 0.9);
-
-    // &::before {
-    //   content: "";
-    //   width: 0.45rem;
-    //   height: 0.45rem;
-    //   border-radius: 50%;
-    //   background: $bg-card;
-    //   opacity: 0.85;
-    // }
   }
 
   .status--open {
-    background: rgba(77, 180, 124, 0.92);
+    color: rgba(77, 180, 124, 0.92);
   }
 
   .status--coming-soon {
-    background: rgba(198, 161, 91, 0.9);
+    color: rgba(198, 161, 91, 0.9);
   }
 
   .status--closed {
-    background: rgba(210, 78, 78, 0.92);
+    color: rgba(210, 78, 78, 0.92);
   }
 
   .media {
