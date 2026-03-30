@@ -87,15 +87,18 @@ const MountainPro = () => {
             className="mountain-pro__mountain"
             aria-label="Mountain progression programs"
           >
-            {programs.map((program, index) => {
-              const isActive = index === activeProgram;
+            {[...programs].reverse().map((program) => {
+              const programIndex = programs.findIndex(
+                (item) => item.id === program.id
+              );
+              const isActive = programIndex === activeProgram;
 
               return (
                 <button
                   key={program.id}
                   type="button"
                   className={`mountain-pro__stage${isActive ? " is-active" : ""}`}
-                  onClick={() => setActiveProgram(index)}
+                  onClick={() => setActiveProgram(programIndex)}
                 >
                   <span className="mountain-pro__stageNumber">
                     {String(program.id).padStart(2, "0")}
@@ -120,29 +123,63 @@ const MountainPro = () => {
               <p>{currentProgram.outcome}</p>
             </div>
 
-            <div className="mountain-pro__metaGrid">
-              <article>
-                <span>Duration</span>
-                <strong>{currentProgram.duration}</strong>
-              </article>
-              <article>
-                <span>Difficulty</span>
-                <strong>{currentProgram.difficulty}</strong>
-              </article>
-            </div>
+            <div className="mountain-pro__chatShell">
+              <div className="mountain-pro__chatTopbar">
+                <div className="mountain-pro__chatIdentity">
+                  <span className="mountain-pro__chatStatus" aria-hidden="true" />
+                  <div>
+                    <strong>Mountain Pro Briefing</strong>
+                    <p>Live program conversation</p>
+                  </div>
+                </div>
+                <span className="mountain-pro__chatBadge">
+                  {currentProgram.difficulty}
+                </span>
+              </div>
 
-            <div className="mountain-pro__chatThread" aria-live="polite">
-              {currentProgram.chat.map((message, index) => (
-                <article
-                  key={`${currentProgram.id}-${index}`}
-                  className={`mountain-pro__bubble mountain-pro__bubble--${message.speaker.toLowerCase()}${
-                    message.tone ? ` is-${message.tone}` : ""
-                  }`}
-                >
-                  <span>{message.speaker}</span>
-                  <p>{message.text}</p>
+              <div className="mountain-pro__metaGrid">
+                <article>
+                  <span>Duration</span>
+                  <strong>{currentProgram.duration}</strong>
                 </article>
-              ))}
+                <article>
+                  <span>Difficulty</span>
+                  <strong>{currentProgram.difficulty}</strong>
+                </article>
+              </div>
+
+              <div className="mountain-pro__chatThread" aria-live="polite">
+                {currentProgram.chat.map((message, index) => (
+                  <article
+                    key={`${currentProgram.id}-${index}`}
+                    className={`mountain-pro__message mountain-pro__message--${message.speaker.toLowerCase()}`}
+                  >
+                    <span className="mountain-pro__avatar" aria-hidden="true">
+                      {message.speaker === "System"
+                        ? "SY"
+                        : message.speaker === "Mentor"
+                          ? "ME"
+                          : "TR"}
+                    </span>
+                    <div
+                      className={`mountain-pro__bubble mountain-pro__bubble--${message.speaker.toLowerCase()}${
+                        message.tone ? ` is-${message.tone}` : ""
+                      }`}
+                    >
+                      <div className="mountain-pro__bubbleMeta">
+                        <span>{message.speaker}</span>
+                        <small>{index === 0 ? "Now" : `${index + 1} min`}</small>
+                      </div>
+                      <p>{message.text}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+
+              <div className="mountain-pro__chatComposer" aria-hidden="true">
+                <span>Ask about eligibility, duration, or the right level</span>
+                <a href={`#program-details-${currentProgram.id}`}>View details</a>
+              </div>
             </div>
 
             <div className="mountain-pro__chatSummary">
@@ -161,7 +198,10 @@ const MountainPro = () => {
         </div>
       </section>
 
-      <section className="mountain-pro__curriculum">
+      <section
+        id={`program-details-${currentProgram.id}`}
+        className="mountain-pro__curriculum"
+      >
         <article className="mountain-pro__curriculumCard">
           <p className="section-eyebrow">Selected Program</p>
           <h2>{currentProgram.tagline}</h2>

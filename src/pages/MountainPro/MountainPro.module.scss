@@ -184,6 +184,7 @@
     cursor: pointer;
     transition:
       transform 0.25s ease,
+      margin-inline 0.25s ease,
       border-color 0.25s ease,
       background 0.25s ease,
       box-shadow 0.25s ease;
@@ -207,6 +208,7 @@
     &:hover,
     &:focus-visible {
       transform: translateY(-2px);
+      margin-inline: 0;
       border-color: rgba(198, 161, 91, 0.48);
       outline: none;
     }
@@ -263,6 +265,15 @@
       rgba(10, 15, 20, 0.72);
   }
 
+  &__chatShell {
+    display: grid;
+    gap: 0.9rem;
+    padding: 0.9rem;
+    border-radius: 22px;
+    background: rgba(5, 9, 13, 0.34);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
   &__chatHeader {
     display: grid;
     gap: 0.5rem;
@@ -277,6 +288,56 @@
       color: var(--mp-text-soft);
       line-height: 1.7;
     }
+  }
+
+  &__chatTopbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  &__chatIdentity {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+
+    strong {
+      display: block;
+      font-size: 0.95rem;
+      color: $text-main;
+    }
+
+    p {
+      color: var(--mp-text-soft);
+      font-size: 0.8rem;
+    }
+  }
+
+  &__chatStatus {
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    background: #67d17d;
+    box-shadow: 0 0 0 6px rgba(103, 209, 125, 0.12);
+    flex-shrink: 0;
+  }
+
+  &__chatBadge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(198, 161, 91, 0.12);
+    border: 1px solid rgba(198, 161, 91, 0.22);
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
   }
 
   &__chatThread {
@@ -315,19 +376,12 @@
   &__bubble {
     display: grid;
     gap: 0.45rem;
-    max-width: 85%;
-    padding: 0.9rem 1rem;
-    border-radius: 18px;
+    max-width: min(88%, 34rem);
+    padding: 0.9rem 1rem 1rem;
+    border-radius: 1.15rem;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.07);
-
-    span {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 700;
-      color: rgba(255, 255, 255, 0.58);
-    }
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
 
     p {
       color: rgba(255, 255, 255, 0.84);
@@ -344,6 +398,56 @@
     }
   }
 
+  &__bubbleMeta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+
+    span,
+    small {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+    }
+
+    span {
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    small {
+      font-size: 0.62rem;
+      color: rgba(255, 255, 255, 0.42);
+    }
+  }
+
+  &__message {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.7rem;
+  }
+
+  &__message--trainee {
+    justify-content: flex-end;
+  }
+
+  &__avatar {
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    font-weight: 800;
+  }
+
   &__bubble--mentor,
   &__bubble--system {
     justify-self: start;
@@ -351,7 +455,52 @@
 
   &__bubble--trainee {
     justify-self: end;
-    background: rgba(255, 255, 255, 0.07);
+    background: linear-gradient(180deg, rgba(45, 58, 74, 0.88), rgba(31, 41, 54, 0.92));
+  }
+
+  &__message--trainee .mountain-pro__avatar {
+    order: 2;
+    background: rgba(93, 123, 160, 0.16);
+  }
+
+  &__message--system .mountain-pro__avatar {
+    background: rgba(198, 161, 91, 0.16);
+    color: var(--mp-accent);
+  }
+
+  &__message--mentor .mountain-pro__avatar {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  &__chatComposer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+    span {
+      color: rgba(255, 255, 255, 0.56);
+      font-size: 0.88rem;
+    }
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.5rem;
+      border: 1px solid rgba(198, 161, 91, 0.3);
+      border-radius: 999px;
+      background: rgba(198, 161, 91, 0.12);
+      color: $text-main;
+      padding: 0.5rem 0.9rem;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
   }
 
   &__chatSummary {
@@ -581,6 +730,16 @@
 
     &__bubble {
       max-width: 100%;
+    }
+
+    &__chatTopbar,
+    &__chatComposer {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    &__message {
+      gap: 0.55rem;
     }
 
     h1 {
