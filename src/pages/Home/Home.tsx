@@ -84,17 +84,19 @@ const Home = () => {
         />
         <p>
           Alpine Operations and Expeditions is an adventure-led fitness company
-          founded by retired Indian Army Officers, specializing in
-          mountaineering, trekking, and extreme sports expeditions. We blend
-          military-precision operations with thrilling outdoor challenges to
-          build resilience, fitness, and unbreakable team spirit, transforming
-          participants through high-altitude treks, mountaineering courses like
-          our signature workshop "Mountain Pro" for all skill levels, plus
-          fitness workshops and community events led by ex-military experts.
-          Operated from Dehradun Valley by seasoned operatives, we prioritize
-          safety, personalized coaching, and immersive experiences that foster
-          lifelong adventure skills—join our thriving community for expeditions
-          that push limits and create legends.
+          founded by ex-military operatives, focused on building resilient
+          individuals through{" "}
+          <b>4D fitness—physical, mental, emotional, and social.</b> We offer
+          everything from <b>guided treks and rare expedition experiences</b> to
+          structured Mountain Pro progressions and mentorship-driven,
+          alpine-style expeditions that emphasize
+          <b>self-sufficiency and real mountaineering growth.</b> Operating from
+          the Dehradun Valley, we are building a <b>strong community</b> while
+          working across three core domains:{" "}
+          <b>Adventure, Training, and Fitness.</b> We prioritize safety,
+          personalized coaching, and immersive experiences that foster lifelong
+          adventure skills—join our thriving community for expeditions that push
+          limits and create legends.
         </p>
       </section>
       <HomeReviews

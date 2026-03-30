@@ -8,11 +8,21 @@ const About = () => {
           <span className="kicker">Our Mission</span>
           <h1>About Alpine Ops</h1>
           <p>
-            Alpine Ops is an adventure-led fitness and outdoor education
-            collective rooted in the mountains and shaped by military
-            experience.
+            Alpine Ops is an adventure-led fitness company rooted in the
+            mountains and shaped by military experience.
           </p>
-          <div className="heroStats">
+          <p>
+            We believe humans were never meant to live soft, disconnected lives.
+            We were built to move, adapt, struggle, and grow—physically,
+            mentally, and spiritually. The mountains remind us of that truth.
+          </p>
+          <p>
+            At Alpine Ops, we design treks, expeditions, and training programs
+            that go far beyond recreation. Every experience is intentional—meant
+            to challenge the body, sharpen the mind, and build character under
+            real conditions.
+          </p>
+          {/* <div className="heroStats">
             <div>
               <span>12+</span>
               <p>Years expedition leadership</p>
@@ -25,65 +35,117 @@ const About = () => {
               <span>8</span>
               <p>Training terrains across India</p>
             </div>
-          </div>
+          </div> */}
         </div>
-        <div
-          className="heroMedia"
+        {/* <div
           style={{
             backgroundImage: `url(${baseUrl}assets/images/main5.jpg)`,
           }}
-        />
+        /> */}
       </div>
 
       <div className="values">
-        <div>
-          <h2>Why We Exist</h2>
-          <p>
+        <div className="valuesIntro">
+          <div>
+            <span className="kicker">Why We Exist</span>
+            <h2>Built in the mountains. Carried back into real life.</h2>
+          </div>
+          {/* <p>
             We believe humans were never meant to live soft, disconnected lives.
-            We were built to move, adapt, struggle, and grow—physically,
-            mentally, and spiritually. The mountains remind us of that truth. At
-            Alpine Ops, we design treks, expeditions, and training programs that
-            go beyond recreation. Every experience is intentional—meant to
-            challenge the body, sharpen the mind, and strengthen character.
-          </p>
+            We were built to move, adapt, struggle, and grow physically,
+            mentally, socially, and spiritually. Alpine Ops uses the mountains
+            as a training ground to build people, not just complete expeditions.
+          </p> */}
         </div>
         <div className="valueGrid">
-          <article>
-            <h3>Our Philosophy</h3>
+          <article className="valueFeature">
+            <span className="valueEyebrow">Our Philosophy</span>
+            <h3>The 4-Dimensional approach to fitness</h3>
             <p>
-              Alpine Ops follows a{" "}
-              <b>
-                4-Dimensional approach to fitness: Physical, Mental, Social, and
-                Spiritual.
-              </b>
+              Alpine Ops develops the whole person through a framework that
+              integrates physical capability with mental resilience, social
+              strength, and spiritual grounding.
             </p>
+            <div className="dimensionList" aria-label="4-dimensional fitness">
+              <span>Physical</span>
+              <span>Mental</span>
+              <span>Social</span>
+              <span>Spiritual</span>
+            </div>
             <p>
-              The mountains don’t just test endurance—they test fear,
+              The mountains do more than test endurance. They expose fear,
               decision-making, teamwork, patience, and self-belief. Nature
-              becomes the classroom. Discomfort becomes the teacher.
+              becomes the classroom, and discomfort becomes the teacher.
             </p>
           </article>
-          <article>
-            <h3>Our DNA</h3>
+
+          <article className="valueMentorship">
+            <span className="valueEyebrow">Mentorship</span>
+            <h3>Guided progression with real-world transfer</h3>
             <p>
-              Our approach is influenced by years of military service in
+              At the core of Alpine Ops lies mentorship. Every progression,
+              expedition, and challenge is guided with intent so the lessons do
+              not stay on the trail.
+            </p>
+            <div className="skillsGrid">
+              <div>
+                <h4>Hard Skills</h4>
+                <ul>
+                  <li>Planning and navigation</li>
+                  <li>Risk assessment</li>
+                  <li>Resource management</li>
+                  <li>Self-sufficiency</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Soft Skills</h4>
+                <ul>
+                  <li>Leadership under pressure</li>
+                  <li>Communication and teamwork</li>
+                  <li>Adaptability</li>
+                  <li>Emotional control</li>
+                </ul>
+              </div>
+            </div>
+            <p>
+              In alpine environments, consequences are immediate and
+              accountability is non-negotiable. That is what makes the training
+              transferable far beyond the mountains.
+            </p>
+          </article>
+
+          <article>
+            <span className="valueEyebrow">Our DNA</span>
+            <h3>Shaped by military clarity and high-altitude experience</h3>
+            <p>
+              Our approach is shaped by years of military service in
               high-altitude and operational environments, where discipline,
-              planning, resilience, and situational awareness are critical for
-              survival and success. <br /> This isn’t tourism. This is
-              preparation—for the mountains and for life.
+              preparation, resilience, and situational awareness are critical
+              for survival and success.
+            </p>
+            <p>
+              This isn’t tourism. This is preparation for the mountains and for
+              life.
             </p>
           </article>
+
           <article>
-            <h3>Our Community</h3>
+            <span className="valueEyebrow">Our Community</span>
+            <h3>A tribe built through shared struggle</h3>
             <p>
-              We’re not building customers—we’re building a community. A tribe
-              that trains together, struggles together, and evolves together.
+              We’re not building customers. We’re building a community that
+              trains together, struggles together, and evolves together.
+            </p>
+            <p>
+              Mentorship flows both ways, experience is shared, and growth is
+              collective. The goal is not only to complete an expedition, but to
+              become the kind of person capable of it.
             </p>
           </article>
         </div>
       </div>
 
-      <div className="story">
+      {/* <div className="story">
         <div className="storyMedia">
           <img src={`${baseUrl}assets/images/main6.jpg`} alt="Field training" />
         </div>
@@ -100,14 +162,14 @@ const About = () => {
             <li>After-action reviews with actionable next steps.</li>
           </ul>
         </div>
-      </div>
+      </div> */}
 
       <div className="founders">
         <span className="kicker">Founders</span>
         <div className="foundersGrid">
           <article>
             <img
-              src={`${baseUrl}assets/images/founders/ishant.jpg`}
+              src={`${baseUrl}assets/images/founders/ishant.png`}
               alt="Founder profile"
             />
             <div className="foundersInformation">
@@ -162,7 +224,7 @@ const About = () => {
           </article>
           <article>
             <img
-              src={`${baseUrl}assets/images/founders/raman.png`}
+              src={`${baseUrl}assets/images/founders/raman.jpg`}
               alt="Founder profile"
             />
             <div className="foundersInformation">
