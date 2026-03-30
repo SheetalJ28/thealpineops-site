@@ -4,6 +4,7 @@ $sidebar-width: 270px;
 $sidebar-collapsed-width: 88px;
 $mobile-nav-height: 74px;
 $header-height: 72px;
+$header-height-lg: 98px;
 
 .nav {
   position: fixed;
@@ -23,6 +24,10 @@ $header-height: 72px;
 
   @include respond(md) {
     display: none;
+  }
+
+  @include respond-min(lg) {
+    top: $header-height-lg;
   }
 
   &.navCollapsed {

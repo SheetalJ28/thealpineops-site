@@ -89,25 +89,27 @@ const SocialMedia = ({ variant }: SocialMediaProps) => {
           />
         </svg>
       </a>
-      <a
-        href="https://wa.me/917819983273"
-        className={styles.whatsApp}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="WhatsApp"
-        title="WhatsApp"
-      >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path
-            d="M20.5 11.8a8.6 8.6 0 0 1-12.7 7.5L3 21l1.8-4.6A8.6 8.6 0 1 1 20.5 11.8Z"
-            fill="currentColor"
-          />
-          <path
-            d="M9.3 7.7c-.3-.6-.5-.6-.8-.6h-.7c-.2 0-.6.1-.8.4-.3.3-1 1-1 2.5s1 2.9 1.1 3.1c.2.2 2 3.2 5 4.3 2.5.9 3 .7 3.5.6.6-.1 1.9-.8 2.2-1.6.3-.8.3-1.5.2-1.6-.1-.2-.2-.3-.5-.4l-1.7-.8c-.3-.1-.5-.1-.7.2l-.7.9c-.2.2-.4.3-.7.2-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.4.3-.6 0-.2 0-.4-.1-.6Z"
-            fill="#0b0e11"
-          />
-        </svg>
-      </a>
+      {!(variant === "header") && (
+        <a
+          href="https://wa.me/917819983273"
+          className={styles.whatsApp}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="WhatsApp"
+          title="WhatsApp"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M20.5 11.8a8.6 8.6 0 0 1-12.7 7.5L3 21l1.8-4.6A8.6 8.6 0 1 1 20.5 11.8Z"
+              fill="currentColor"
+            />
+            <path
+              d="M9.3 7.7c-.3-.6-.5-.6-.8-.6h-.7c-.2 0-.6.1-.8.4-.3.3-1 1-1 2.5s1 2.9 1.1 3.1c.2.2 2 3.2 5 4.3 2.5.9 3 .7 3.5.6.6-.1 1.9-.8 2.2-1.6.3-.8.3-1.5.2-1.6-.1-.2-.2-.3-.5-.4l-1.7-.8c-.3-.1-.5-.1-.7.2l-.7.9c-.2.2-.4.3-.7.2-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.4.3-.6 0-.2 0-.4-.1-.6Z"
+              fill="#0b0e11"
+            />
+          </svg>
+        </a>
+      )}
     </div>
   );
 };

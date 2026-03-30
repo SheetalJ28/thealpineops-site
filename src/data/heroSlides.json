@@ -4,11 +4,11 @@
     "title": "Fitness"
   },
   {
-    "image": "/assets/images/main2.jpg",
+    "image": "/assets/images/hero/training.jpg",
     "title": "Training"
   },
   {
-    "image": "/assets/images/main3.jpg",
+    "image": "/assets/images/hero/adventure.jpg",
     "title": "Adventure"
   }
 ]

@@ -22,6 +22,10 @@
     padding: 0 0.9rem;
     padding-top: 0.7rem;
   }
+
+  @include respond-min(lg) {
+    height: 100px;
+  }
 }
 
 .headerBrand {
@@ -55,6 +59,9 @@
     border-radius: 999px;
     border: 2px solid transparent;
     background: #0b0e11;
+    @include respond-min(lg) {
+      height: 80px;
+    }
   }
 
   @include respond(lg) {
@@ -72,10 +79,16 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   white-space: nowrap;
+  @include respond-min(lg) {
+    font-size: 1.25rem;
+  }
 
   .operations {
     color: red;
     font-size: 0.94rem;
+    @include respond-min(lg) {
+      font-size: 1.313rem;
+    }
   }
 
   @include respond(sm) {
@@ -85,6 +98,9 @@
 
 .headerSubTitle {
   font-size: 0.7rem;
+  @include respond-min(lg) {
+    font-size: 1rem;
+  }
 }
 
 .stickyContact {

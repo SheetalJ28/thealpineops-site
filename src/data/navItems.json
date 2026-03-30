@@ -7,7 +7,7 @@
   },
   {
     "to": "/programs",
-    "label": "Programs",
+    "label": "Upcoming",
     "iconPath": "M8 6V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1h3a2 2 0 0 1 2 2v3H3V8a2 2 0 0 1 2-2zm2 0h4V5h-4zm11 7v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6h7v2h4v-2z"
   },
   {
