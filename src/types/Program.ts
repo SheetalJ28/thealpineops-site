@@ -15,7 +15,7 @@ export interface Program {
     eyebrow: string;
     expectTitle: string;
     snapshotTitle: string;
-    snapshot: string;
+    snapshot: string[] | string;
     snapshotChips: string[];
     factLabels: {
       location: string;
@@ -27,17 +27,28 @@ export interface Program {
       label: string;
       value: string;
     }[];
+    showPricing?: boolean;
+    pricing?: {
+      title: string;
+      items: {
+        label: string;
+        value: string;
+      }[];
+      note?: string;
+    };
     primaryCtaLabel: string;
     primaryCtaUrl: string;
     footerNote: string;
     footerCtaLabel: string;
     footerCtaUrl: string;
+    showStay?: boolean;
     stay: {
       title: string;
       summary: string;
       highlights: string[];
       images: string[];
     };
+    showTrainingPlan?: boolean;
     trainingPlan: {
       title: string;
       days: {
@@ -46,6 +57,7 @@ export interface Program {
         items: string[];
       }[];
     };
+    showInclusionsExclusions?: boolean;
     inclusionsExclusions: {
       title: string;
       inclusionsTitle: string;
@@ -53,6 +65,7 @@ export interface Program {
       inclusions: string[];
       exclusions: string[];
     };
+    showJoinCriteria?: boolean;
     joinCriteria: {
       whoCanJoinTitle: string;
       whoCanJoin: string[];

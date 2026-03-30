@@ -46,7 +46,7 @@ const MountainPro = () => {
           <p className="mountain-pro__intro">
             Mountain Pro is Alpine Ops&apos; structured outdoor training system
             built around fitness, mentorship, and progressive exposure to real
-            mountain environments. Winters we train. Summers we operate.
+            mountain environments. Winters - we train. Summers - we operate.
           </p>
         </div>
         <div
@@ -153,7 +153,6 @@ const MountainPro = () => {
                   <p key={`${currentProgram.id}-${index}`}>{message.text}</p>
                 ))}
               </div>
-
             </div>
           </article>
         </div>
@@ -171,7 +170,9 @@ const MountainPro = () => {
           <p className="mountain-pro__entryStandard">
             <strong>Entry standard:</strong> {currentProgram.entryStandard}
           </p>
-          <h4 className="mountain-pro__objectivesHeading">Training Objectives</h4>
+          <h4 className="mountain-pro__objectivesHeading">
+            Training Objectives
+          </h4>
           <ul className="mountain-pro__objectivesList">
             {currentProgram.trainingObjectives.map((item) => (
               <li key={item}>{item}</li>

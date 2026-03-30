@@ -84,12 +84,15 @@ const ProgramDetail = () => {
       if (event.key === "ArrowLeft") {
         setPreviewState((current) => {
           if (!current) return current;
-          const images = current.gallery === "program" ? galleryImages : stayImages;
+          const images =
+            current.gallery === "program" ? galleryImages : stayImages;
           if (!images.length) return current;
           return {
             ...current,
             index:
-              current.index === 0 ? images.length - 1 : Math.max(current.index - 1, 0),
+              current.index === 0
+                ? images.length - 1
+                : Math.max(current.index - 1, 0),
           };
         });
         return;
@@ -98,7 +101,8 @@ const ProgramDetail = () => {
       if (event.key === "ArrowRight") {
         setPreviewState((current) => {
           if (!current) return current;
-          const images = current.gallery === "program" ? galleryImages : stayImages;
+          const images =
+            current.gallery === "program" ? galleryImages : stayImages;
           if (!images.length) return current;
           return {
             ...current,
@@ -169,7 +173,8 @@ const ProgramDetail = () => {
       if (!current || !previewImages.length) return current;
       return {
         ...current,
-        index: current.index === 0 ? previewImages.length - 1 : current.index - 1,
+        index:
+          current.index === 0 ? previewImages.length - 1 : current.index - 1,
       };
     });
   const showNextPreviewImage = () =>
@@ -177,7 +182,8 @@ const ProgramDetail = () => {
       if (!current || !previewImages.length) return current;
       return {
         ...current,
-        index: current.index === previewImages.length - 1 ? 0 : current.index + 1,
+        index:
+          current.index === previewImages.length - 1 ? 0 : current.index + 1,
       };
     });
 
@@ -271,7 +277,7 @@ const ProgramDetail = () => {
         </div>
 
         <aside className="program-detail__booking">
-          <p className="section-eyebrow">{program.detail.eyebrow}</p>
+          {/* <p className="section-eyebrow">{program.detail.eyebrow}</p> */}
           <h1>{program.title}</h1>
           <div className="program-detail__metaPills">
             <span className="program-detail__category">{program.category}</span>
@@ -297,6 +303,26 @@ const ProgramDetail = () => {
               <strong>{program.duration}</strong>
             </li>
           </ul>
+
+          {program.detail.showPricing &&
+            program.detail.pricing?.items?.length && (
+              <div className="program-detail__pricing">
+                <h2>{program.detail.pricing.title}</h2>
+                <ul className="program-detail__pricingList">
+                  {program.detail.pricing.items.map((item) => (
+                    <li key={`${item.label}-${item.value}`}>
+                      <span>{item.label}</span>
+                      <strong>{item.value}</strong>
+                    </li>
+                  ))}
+                </ul>
+                {program.detail.pricing.note ? (
+                  <p className="program-detail__pricingNote">
+                    {program.detail.pricing.note}
+                  </p>
+                ) : null}
+              </div>
+            )}
 
           <a
             className="program-detail__cta"
@@ -346,180 +372,208 @@ const ProgramDetail = () => {
 
         <article className="program-detail__panel">
           <h2>{program.detail.snapshotTitle}</h2>
-          <p>{program.detail.snapshot}</p>
-          <div className="program-detail__chips">
-            {program.detail.snapshotChips.map((chip) => (
-              <span key={chip}>{chip}</span>
-            ))}
-          </div>
+          {Array.isArray(program.detail.snapshot) ? (
+            <ul className="program-detail__list">
+              {program.detail.snapshot
+                .filter((snapshot) => snapshot.trim().length > 0)
+                .map((snapshot) => (
+                  <li key={snapshot}>{snapshot}</li>
+                ))}
+            </ul>
+          ) : (
+            <p>{program.detail.snapshot}</p>
+          )}
+          {program.detail.snapshotChips?.length > 0 && (
+            <div className="program-detail__chips">
+              {program.detail.snapshotChips.map((chip) => (
+                <span key={chip}>{chip}</span>
+              ))}
+            </div>
+          )}
         </article>
       </div>
 
-      <article className="program-detail__stay">
-        <div className="program-detail__stayHeader">
-          <h2>{program.detail.stay.title}</h2>
-          <p>{program.detail.stay.summary}</p>
-        </div>
+      {program?.detail?.showStay && (
+        <article className="program-detail__stay">
+          <div className="program-detail__stayHeader">
+            <h2>{program.detail.stay.title}</h2>
+            <p>{program.detail.stay.summary}</p>
+          </div>
 
-        <div className="program-detail__stayGrid">
-          <ul className="program-detail__list">
-            {program.detail.stay.highlights.map((highlight) => (
-              <li key={highlight}>{highlight}</li>
-            ))}
-          </ul>
+          <div className="program-detail__stayGrid">
+            <ul className="program-detail__list">
+              {program.detail.stay.highlights.map((highlight) => (
+                <li key={highlight}>{highlight}</li>
+              ))}
+            </ul>
 
-          {activeStayImage && (
-            <div className="program-detail__stayGallery">
-              <div className="program-detail__stayMedia">
-                <img
-                  className="program-detail__stayMainImage"
-                  src={activeStayImage}
-                  alt={`${program.title} accommodation ${activeStayIndex + 1}`}
-                  onClick={() =>
-                    setPreviewState({ gallery: "stay", index: activeStayIndex })
-                  }
-                />
+            {activeStayImage && (
+              <div className="program-detail__stayGallery">
+                <div className="program-detail__stayMedia">
+                  <img
+                    className="program-detail__stayMainImage"
+                    src={activeStayImage}
+                    alt={`${program.title} accommodation ${activeStayIndex + 1}`}
+                    onClick={() =>
+                      setPreviewState({
+                        gallery: "stay",
+                        index: activeStayIndex,
+                      })
+                    }
+                  />
+                  {hasMultipleStayImages && (
+                    <>
+                      <button
+                        type="button"
+                        className="program-detail__galleryNav program-detail__galleryNav--prev"
+                        onClick={showPrevStayImage}
+                        aria-label="Previous accommodation image"
+                      >
+                        ‹
+                      </button>
+                      <button
+                        type="button"
+                        className="program-detail__galleryNav program-detail__galleryNav--next"
+                        onClick={showNextStayImage}
+                        aria-label="Next accommodation image"
+                      >
+                        ›
+                      </button>
+                    </>
+                  )}
+                </div>
+
                 {hasMultipleStayImages && (
-                  <>
-                    <button
-                      type="button"
-                      className="program-detail__galleryNav program-detail__galleryNav--prev"
-                      onClick={showPrevStayImage}
-                      aria-label="Previous accommodation image"
-                    >
-                      ‹
-                    </button>
-                    <button
-                      type="button"
-                      className="program-detail__galleryNav program-detail__galleryNav--next"
-                      onClick={showNextStayImage}
-                      aria-label="Next accommodation image"
-                    >
-                      ›
-                    </button>
-                  </>
+                  <div
+                    className="program-detail__stayThumbs"
+                    aria-label="Accommodation gallery"
+                  >
+                    {stayImages.map((image, index) => (
+                      <button
+                        key={`${image}-${index}`}
+                        type="button"
+                        className={`program-detail__thumb ${activeStayIndex === index ? "isActive" : ""}`}
+                        onClick={() => {
+                          setStayGalleryState({ slug: slug ?? "", index });
+                        }}
+                        aria-label={`Show accommodation image ${index + 1}`}
+                        aria-pressed={activeStayIndex === index}
+                      >
+                        <img src={image} alt="" />
+                      </button>
+                    ))}
+                  </div>
                 )}
               </div>
+            )}
+          </div>
+        </article>
+      )}
 
-              {hasMultipleStayImages && (
-                <div
-                  className="program-detail__stayThumbs"
-                  aria-label="Accommodation gallery"
+      {program?.detail?.showTrainingPlan && (
+        <article className="program-detail__plan">
+          <h2>{program.detail.trainingPlan.title}</h2>
+          <div className="program-detail__planGrid">
+            {program.detail.trainingPlan.days.map((planDay, index) => (
+              <section className="program-detail__planDay" key={planDay.day}>
+                <button
+                  type="button"
+                  className="program-detail__planDayToggle"
+                  onClick={() =>
+                    setOpenPlanDaysBySlug((current) => {
+                      const currentPlanDays =
+                        current[currentSlug] ?? defaultOpenPlanDays;
+                      return {
+                        ...current,
+                        [currentSlug]: {
+                          ...currentPlanDays,
+                          [planDay.day]: !currentPlanDays[planDay.day],
+                        },
+                      };
+                    })
+                  }
+                  aria-expanded={Boolean(openPlanDays[planDay.day])}
+                  aria-controls={`plan-day-${index}`}
                 >
-                  {stayImages.map((image, index) => (
-                    <button
-                      key={`${image}-${index}`}
-                      type="button"
-                      className={`program-detail__thumb ${activeStayIndex === index ? "isActive" : ""}`}
-                      onClick={() => {
-                        setStayGalleryState({ slug: slug ?? "", index });
-                      }}
-                      aria-label={`Show accommodation image ${index + 1}`}
-                      aria-pressed={activeStayIndex === index}
-                    >
-                      <img src={image} alt="" />
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-      </article>
+                  <span className="program-detail__planDayLabel">
+                    {planDay.day}
+                  </span>
+                  <span className="program-detail__planDayHeading">
+                    {planDay.heading}
+                  </span>
+                  <span
+                    className="program-detail__planDayChevron"
+                    aria-hidden="true"
+                  >
+                    {openPlanDays[planDay.day] ? "−" : "+"}
+                  </span>
+                </button>
+                {openPlanDays[planDay.day] && (
+                  <div
+                    className="program-detail__planDayContent"
+                    id={`plan-day-${index}`}
+                  >
+                    <ul className="program-detail__list">
+                      {planDay.items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </section>
+            ))}
+          </div>
+        </article>
+      )}
 
-      <article className="program-detail__plan">
-        <h2>{program.detail.trainingPlan.title}</h2>
-        <div className="program-detail__planGrid">
-          {program.detail.trainingPlan.days.map((planDay, index) => (
-            <section className="program-detail__planDay" key={planDay.day}>
-              <button
-                type="button"
-                className="program-detail__planDayToggle"
-                onClick={() =>
-                  setOpenPlanDaysBySlug((current) => {
-                    const currentPlanDays =
-                      current[currentSlug] ?? defaultOpenPlanDays;
-                    return {
-                      ...current,
-                      [currentSlug]: {
-                        ...currentPlanDays,
-                        [planDay.day]: !currentPlanDays[planDay.day],
-                      },
-                    };
-                  })
-                }
-                aria-expanded={Boolean(openPlanDays[planDay.day])}
-                aria-controls={`plan-day-${index}`}
-              >
-                <span className="program-detail__planDayLabel">{planDay.day}</span>
-                <span className="program-detail__planDayHeading">
-                  {planDay.heading}
-                </span>
-                <span className="program-detail__planDayChevron" aria-hidden="true">
-                  {openPlanDays[planDay.day] ? "−" : "+"}
-                </span>
-              </button>
-              {openPlanDays[planDay.day] && (
-                <div
-                  className="program-detail__planDayContent"
-                  id={`plan-day-${index}`}
-                >
-                  <ul className="program-detail__list">
-                    {planDay.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+      {program?.detail?.showJoinCriteria && (
+        <article className="program-detail__join">
+          <div className="program-detail__includeExcludeGrid">
+            <section className="program-detail__includeCard">
+              <h3>{program.detail.joinCriteria.whoCanJoinTitle}</h3>
+              <ul className="program-detail__list">
+                {program.detail.joinCriteria.whoCanJoin.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </section>
-          ))}
-        </div>
-      </article>
 
-      <article className="program-detail__join">
-        <div className="program-detail__includeExcludeGrid">
-          <section className="program-detail__includeCard">
-            <h3>{program.detail.joinCriteria.whoCanJoinTitle}</h3>
-            <ul className="program-detail__list">
-              {program.detail.joinCriteria.whoCanJoin.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </section>
+            <section className="program-detail__includeCard">
+              <h3>{program.detail.joinCriteria.whoShouldJoinTitle}</h3>
+              <ul className="program-detail__list">
+                {program.detail.joinCriteria.whoShouldJoin.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+          </div>
+        </article>
+      )}
 
-          <section className="program-detail__includeCard">
-            <h3>{program.detail.joinCriteria.whoShouldJoinTitle}</h3>
-            <ul className="program-detail__list">
-              {program.detail.joinCriteria.whoShouldJoin.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </section>
-        </div>
-      </article>
+      {program?.detail?.showInclusionsExclusions && (
+        <article className="program-detail__includeExclude">
+          <h2>{program.detail.inclusionsExclusions.title}</h2>
+          <div className="program-detail__includeExcludeGrid">
+            <section className="program-detail__includeCard">
+              <h3>{program.detail.inclusionsExclusions.inclusionsTitle}</h3>
+              <ul className="program-detail__list">
+                {program.detail.inclusionsExclusions.inclusions.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
 
-      <article className="program-detail__includeExclude">
-        <h2>{program.detail.inclusionsExclusions.title}</h2>
-        <div className="program-detail__includeExcludeGrid">
-          <section className="program-detail__includeCard">
-            <h3>{program.detail.inclusionsExclusions.inclusionsTitle}</h3>
-            <ul className="program-detail__list">
-              {program.detail.inclusionsExclusions.inclusions.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </section>
-
-          <section className="program-detail__excludeCard">
-            <h3>{program.detail.inclusionsExclusions.exclusionsTitle}</h3>
-            <ul className="program-detail__list">
-              {program.detail.inclusionsExclusions.exclusions.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </section>
-        </div>
-      </article>
+            <section className="program-detail__excludeCard">
+              <h3>{program.detail.inclusionsExclusions.exclusionsTitle}</h3>
+              <ul className="program-detail__list">
+                {program.detail.inclusionsExclusions.exclusions.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+          </div>
+        </article>
+      )}
 
       <div className="program-detail__footerNote">
         {program.detail.footerNote}
