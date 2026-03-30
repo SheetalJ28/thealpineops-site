@@ -1,0 +1,157 @@
+{
+  "programs": [
+    {
+      "id": 1,
+      "label": "Foundations",
+      "title": "Breaking the Comfort Mindset to Self Management",
+      "tagline": "Entry-level outdoor conditioning for people stepping into the mountain environment for the first time.",
+      "duration": "3 Days",
+      "difficulty": "Level 1 · Entry",
+      "entryStandard": "Basic fitness required. Ability to walk 4-6 km with a light pack. No prior trekking experience needed. Higher BMI is acceptable if functional fitness is adequate.",
+      "summary": "Foundations is the entry point into the Mountain Pro system. It introduces participants to an outdoor operating mindset and gradually removes psychological dependency on comfort.",
+      "outcome": "Develop self-management, outdoor confidence, and the first layer of four-dimensional fitness.",
+      "trainingObjectives": [
+        "Psychological conditioning for the outdoors",
+        "Self-management in natural environments",
+        "Understanding physical, mental, social, and spiritual fitness"
+      ],
+      "chat": [
+        {
+          "speaker": "System",
+          "tone": "accent",
+          "text": "Program selected: Mountain Pro Foundations"
+        },
+        {
+          "speaker": "Mentor",
+          "text": "This is where we stop treating the mountains like a scenic backdrop and start using them as a training ground."
+        },
+        {
+          "speaker": "Trainee",
+          "tone": "muted",
+          "text": "So the first win is not distance. It is learning to manage myself outside comfort."
+        },
+        {
+          "speaker": "Mentor",
+          "text": "Exactly. The objective is composure, movement discipline, and the ability to function confidently in natural terrain."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "label": "Practitioner",
+      "title": "From Individual Capability to Team Efficiency",
+      "tagline": "A team-oriented mountain program that builds endurance, reliability, and coordinated movement in uneven terrain.",
+      "duration": "5 Days",
+      "difficulty": "Level 2 · Intermediate",
+      "entryStandard": "Ability to cover 8-10 km in 2-3 hours with an 8-10 kg ruck and move continuously on uneven terrain with short recovery breaks.",
+      "summary": "At this level the difficulty increases and the emphasis shifts from self-management to operating effectively as part of a team in the mountains.",
+      "outcome": "Build endurance, team discipline, and decision-making under physical stress.",
+      "trainingObjectives": [
+        "Advanced mountain movement and endurance",
+        "Team coordination and responsibility",
+        "Decision-making under physical stress"
+      ],
+      "chat": [
+        {
+          "speaker": "System",
+          "tone": "accent",
+          "text": "Program selected: Mountain Pro Practitioner"
+        },
+        {
+          "speaker": "Mentor",
+          "text": "Now your individual fitness has to translate into team efficiency. The standard rises from self-control to shared reliability."
+        },
+        {
+          "speaker": "Trainee",
+          "tone": "muted",
+          "text": "That means pace, communication, and decision quality have to hold even when fatigue starts building."
+        },
+        {
+          "speaker": "Mentor",
+          "text": "Exactly. Longer movements and harder terrain expose whether you can contribute under pressure without breaking team rhythm."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "label": "High Altitude Operations",
+      "title": "Leadership and Operating in Harsh Mountain Environments",
+      "tagline": "Built for participants preparing to function and lead when reduced oxygen, fatigue, and harsh weather reshape the fight.",
+      "duration": "8 Days",
+      "difficulty": "Level 3 · Advanced",
+      "entryStandard": "Ability to sustain 10-15 km over 4-6 hours with a 10-15 kg load. Resting HR recovery should normalize within 2-3 minutes after moderate exertion. Prior trekking experience recommended.",
+      "summary": "This stage introduces participants to the challenges of high altitude environments where reduced oxygen, harsh weather, and fatigue become major factors.",
+      "outcome": "Operate efficiently and lead small teams under physical and environmental stress. Also highly recommended for BMC aspirants.",
+      "trainingObjectives": [
+        "Leadership in small teams",
+        "High altitude adaptation and movement",
+        "Operational decision-making in harsh conditions",
+        "Basic mountaineering skills",
+        "Outdoor survival capsule"
+      ],
+      "chat": [
+        {
+          "speaker": "System",
+          "tone": "accent",
+          "text": "Program selected: High Altitude Operations"
+        },
+        {
+          "speaker": "Mentor",
+          "text": "At altitude, the mountain starts taxing oxygen, recovery, and judgement at the same time."
+        },
+        {
+          "speaker": "Trainee",
+          "tone": "muted",
+          "text": "So fitness alone is not enough. I need movement control, environmental awareness, and leadership under stress."
+        },
+        {
+          "speaker": "Mentor",
+          "text": "Correct. This level is about staying capable when weather, terrain, and fatigue all begin to narrow your margin."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "label": "Alpine Operator",
+      "title": "Complete Mountain Capability",
+      "tagline": "The highest level of Mountain Pro, built for serious terrain, technical mountaineering exposure, and leadership with full ownership.",
+      "duration": "10 Days",
+      "difficulty": "Level 4 · Expert",
+      "entryStandard": "Ability to operate 6-8 hours daily for multiple days carrying 15-20 kg, including steep ascents, with consistent recovery and performance. Strong trekking background and excellent physical fitness required.",
+      "summary": "This is the highest level of the Mountain Pro system. Participants are introduced to technical mountaineering equipment and alpine-style operations where complete self-reliance is expected.",
+      "outcome": "Develop alpine self-sufficiency, technical competence, and leadership in serious mountain terrain. Also highly recommended for AMC aspirants.",
+      "trainingObjectives": [
+        "Complete alpine self-sufficiency",
+        "Operational planning and leadership",
+        "Technical mountaineering skills",
+        "Absolute accountability and ownership"
+      ],
+      "chat": [
+        {
+          "speaker": "System",
+          "tone": "accent",
+          "text": "Program selected: Alpine Operator"
+        },
+        {
+          "speaker": "Mentor",
+          "text": "This is no longer about participation. It is about competence, ownership, and the ability to operate with technical intent."
+        },
+        {
+          "speaker": "Trainee",
+          "tone": "muted",
+          "text": "The question changes from can I keep up to can I lead, plan, and stay accountable in serious terrain."
+        },
+        {
+          "speaker": "Mentor",
+          "text": "Exactly. Alpine Operator is the point where self-reliance, technical skill, and leadership have to come together as one system."
+        }
+      ]
+    }
+  ],
+  "mentorshipPoints": [
+    "Mentorship treks bridge the gap between learning isolated skills and building real mountain capability.",
+    "Climbs are conducted in true alpine style: lean, efficient, and focused on judgement, responsibility, and self-reliance.",
+    "Participants take on roles, make calls, and operate in real environments while being observed, corrected, and refined.",
+    "Over time this process builds confidence to lead, composure under pressure, and instinct for risk assessment."
+  ]
+}

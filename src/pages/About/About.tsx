@@ -41,7 +41,7 @@ const About = () => {
       <div className="values">
         <div className="valuesIntro">
           <div>
-            <span className="kicker">Why We Exist</span>
+            <span className="section-eyebrow">Why We Exist</span>
             <h2>Built in the mountains. Carried back into real life.</h2>
           </div>
         </div>
@@ -153,7 +153,7 @@ const About = () => {
       </div> */}
 
       <div className="founders">
-        <span className="kicker">Founders</span>
+        <span className="section-eyebrow">Founders</span>
         <div className="foundersGrid">
           <article>
             <img

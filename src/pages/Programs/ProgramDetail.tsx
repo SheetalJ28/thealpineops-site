@@ -271,7 +271,7 @@ const ProgramDetail = () => {
         </div>
 
         <aside className="program-detail__booking">
-          <p className="program-detail__eyebrow">{program.detail.eyebrow}</p>
+          <p className="section-eyebrow">{program.detail.eyebrow}</p>
           <h1>{program.title}</h1>
           <div className="program-detail__metaPills">
             <span className="program-detail__category">{program.category}</span>

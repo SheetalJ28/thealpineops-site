@@ -1,154 +1,229 @@
-const dayPlan = [
-  {
-    day: "Day 1",
-    focus: "Baseline Assessment + Acclimatization",
-    details:
-      "Mobility screening, pack-fit check, breathing drills, and a low-load acclimatization trek with pacing control.",
-  },
-  {
-    day: "Day 2",
-    focus: "Strength Endurance + Load Movement",
-    details:
-      "Step-up circuits, hill carries, core bracing under fatigue, and terrain-specific movement with 10-12 kg loads.",
-  },
-  {
-    day: "Day 3",
-    focus: "Navigation + Team Movement",
-    details:
-      "Map orientation, route selection, communication drills, and controlled group movement through mixed terrain.",
-  },
-  {
-    day: "Day 4",
-    focus: "High Altitude Work Capacity",
-    details:
-      "Interval climbs, recovery windows, nutrition timing, and decision-making tasks under oxygen-limited effort.",
-  },
-  {
-    day: "Day 5",
-    focus: "Integrated Field Simulation",
-    details:
-      "Full mission-style movement block combining planning, execution, and after-action review for individual and team gaps.",
-  },
-];
+import { useState } from "react";
+import mountainProData from "../../data/mountainProData.json";
+
+type ChatMessage = {
+  speaker: "System" | "Mentor" | "Trainee";
+  tone?: "accent" | "muted";
+  text: string;
+};
+
+type ItineraryItem = {
+  day: string;
+  focus: string;
+  details: string;
+};
+
+type Program = {
+  id: number;
+  label: string;
+  title: string;
+  tagline: string;
+  duration: string;
+  difficulty: string;
+  entryStandard: string;
+  summary: string;
+  outcome: string;
+  trainingObjectives: string[];
+  chat: ChatMessage[];
+  itinerary: ItineraryItem[];
+};
+
+const { programs, mentorshipPoints } = mountainProData as {
+  programs: Program[];
+  mentorshipPoints: string[];
+};
 
 const MountainPro = () => {
+  const [activeProgram, setActiveProgram] = useState(0);
+  const currentProgram = programs[activeProgram];
+
   return (
     <section className="mountain-pro">
       <header className="mountain-pro__hero">
-        <p className="mountain-pro__eyebrow">Mountain Pro</p>
-        <h1>Mountain Pro Performance Program</h1>
-        <p className="mountain-pro__intro">
-          Mountain Pro is an intensive field-led preparation program designed
-          for trekkers, expedition members, and operators who need reliable
-          performance in demanding mountain terrain.
-        </p>
+        <div className="mountain-pro__heroCopy">
+          <p className="section-eyebrow">Mountain Pro</p>
+          <h1>Train for the mountains. Prepare for life.</h1>
+          <p className="mountain-pro__intro">
+            Mountain Pro is Alpine Ops&apos; structured outdoor training system
+            built around fitness, mentorship, and progressive exposure to real
+            mountain environments. Winters we train. Summers we operate.
+          </p>
+        </div>
+        <div
+          className="mountain-pro__heroStats"
+          aria-label="Mountain Pro highlights"
+        >
+          <div>
+            <span>4</span>
+            <p>program levels</p>
+          </div>
+          <div>
+            <span>3-10</span>
+            <p>days per program</p>
+          </div>
+          <div>
+            <span>1</span>
+            <p>progressive pathway</p>
+          </div>
+        </div>
       </header>
 
-      <section className="mountain-pro__section">
-        <h2>What is Mountain Pro?</h2>
-        <p>
-          It is a structured mountain readiness system that combines strength,
-          endurance, mobility, breathing control, and terrain skills so you can
-          move efficiently at altitude with a pack and make better decisions
-          under stress.
-        </p>
-      </section>
+      <section className="mountain-pro__flow">
+        <div className="mountain-pro__flowIntro">
+          <p className="section-eyebrow">Program Selector</p>
+          <h2>
+            Select a Mountain Pro level to view its difficulty and entry criteria
+          </h2>
+          <p>
+            Each program is a distinct stage in the Mountain Pro progression.
+            Users can enter at the level that aligns with their current
+            capability, though the full pathway is designed to build in
+            sequence.
+          </p>
+        </div>
 
-      <section className="mountain-pro__section mountain-pro__section--altitude">
-        <h2>High Altitude Operations</h2>
-        <p>
-          High altitude operations demand more than fitness. The body works with
-          reduced oxygen, slower recovery, and higher movement cost. Our
-          sessions focus on pacing, load management, terrain judgement, and team
-          communication so performance stays consistent in real mountain
-          conditions.
-        </p>
-      </section>
+        <div className="mountain-pro__flowLayout">
+          <div
+            className="mountain-pro__mountain"
+            aria-label="Mountain progression programs"
+          >
+            {programs.map((program, index) => {
+              const isActive = index === activeProgram;
 
-      <section className="mountain-pro__cards">
-        <article>
-          <h3>Training Objective</h3>
-          <ul>
-            <li>
-              Build durable strength and endurance for long mountain days.
-            </li>
-            <li>Improve pack-load movement economy and posture control.</li>
-            <li>Increase operational confidence in exposed terrain.</li>
-          </ul>
-        </article>
+              return (
+                <button
+                  key={program.id}
+                  type="button"
+                  className={`mountain-pro__stage${isActive ? " is-active" : ""}`}
+                  onClick={() => setActiveProgram(index)}
+                >
+                  <span className="mountain-pro__stageNumber">
+                    {String(program.id).padStart(2, "0")}
+                  </span>
+                  <div className="mountain-pro__stageBody">
+                    <p>{program.label}</p>
+                    <strong>{program.difficulty}</strong>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
 
-        <article>
-          <h3>Training Methodology</h3>
-          <ul>
-            <li>Progressive overload with terrain-specific conditioning.</li>
-            <li>Scenario-based drills with measurable performance markers.</li>
-            <li>Coaching feedback loops with daily correction points.</li>
-          </ul>
-        </article>
+          <article className="mountain-pro__chatPanel">
+            <div className="mountain-pro__chatHeader">
+              <div>
+                <p className="section-eyebrow">
+                  Program {String(currentProgram.id).padStart(2, "0")}
+                </p>
+                <h3>{currentProgram.label}</h3>
+              </div>
+              <p>{currentProgram.outcome}</p>
+            </div>
 
-        <article>
-          <h3>Style of Movement</h3>
-          <ul>
-            <li>Rhythmic pacing and breath-synchronized climbing.</li>
-            <li>Efficient uphill/downhill mechanics with joint protection.</li>
-            <li>Team movement protocols for speed, safety, and control.</li>
-          </ul>
-        </article>
-      </section>
+            <div className="mountain-pro__metaGrid">
+              <article>
+                <span>Duration</span>
+                <strong>{currentProgram.duration}</strong>
+              </article>
+              <article>
+                <span>Difficulty</span>
+                <strong>{currentProgram.difficulty}</strong>
+              </article>
+            </div>
 
-      <section className="mountain-pro__section">
-        <h2>What You&apos;ll Learn</h2>
-        <div className="mountain-pro__learnGrid">
-          <article className="mountain-pro__learnCard">
-            <h3>Altitude Readiness</h3>
-            <p>
-              Practical acclimatization habits, breathing patterns, and effort
-              pacing to sustain output at elevation.
-            </p>
-          </article>
-          <article className="mountain-pro__learnCard">
-            <h3>Load & Terrain Skills</h3>
-            <p>
-              Efficient uphill and downhill mechanics, pack handling, and foot
-              placement for technical trails.
-            </p>
-          </article>
-          <article className="mountain-pro__learnCard">
-            <h3>Operational Decision-Making</h3>
-            <p>
-              Route judgement, risk checks, and communication protocols for
-              safer and faster team movement.
-            </p>
-          </article>
-          <article className="mountain-pro__learnCard">
-            <h3>Recovery & Continuity</h3>
-            <p>
-              Recovery routines, hydration-nutrition timing, and mobility
-              sequencing to train consistently.
-            </p>
+            <div className="mountain-pro__chatThread" aria-live="polite">
+              {currentProgram.chat.map((message, index) => (
+                <article
+                  key={`${currentProgram.id}-${index}`}
+                  className={`mountain-pro__bubble mountain-pro__bubble--${message.speaker.toLowerCase()}${
+                    message.tone ? ` is-${message.tone}` : ""
+                  }`}
+                >
+                  <span>{message.speaker}</span>
+                  <p>{message.text}</p>
+                </article>
+              ))}
+            </div>
+
+            <div className="mountain-pro__chatSummary">
+              <h4>{currentProgram.title}</h4>
+              <p>{currentProgram.summary}</p>
+              <p className="mountain-pro__entryStandard">
+                <strong>Entry standard:</strong> {currentProgram.entryStandard}
+              </p>
+              <ul>
+                {currentProgram.trainingObjectives.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
           </article>
         </div>
       </section>
 
-      <section className="mountain-pro__section">
-        <h2>Session Plan: Day-to-Day Training</h2>
-        <div className="mountain-pro__planGrid">
-          {dayPlan.map((item) => (
-            <article key={item.day} className="mountain-pro__planCard">
-              <p className="mountain-pro__day">{item.day}</p>
-              <h3>{item.focus}</h3>
-              <p>{item.details}</p>
+      <section className="mountain-pro__curriculum">
+        <article className="mountain-pro__curriculumCard">
+          <p className="section-eyebrow">Selected Program</p>
+          <h2>{currentProgram.tagline}</h2>
+          <p>
+            The mountains naturally challenge every dimension of human fitness.
+            Through structured exposure and progressive difficulty, Mountain Pro
+            develops capability that transfers into both alpine terrain and life
+            outside it.
+          </p>
+        </article>
+
+        <div className="mountain-pro__curriculumGrid">
+          <article>
+            <h3>Program Focus</h3>
+            <p>{currentProgram.summary}</p>
+          </article>
+          <article>
+            <h3>Level of Difficulty</h3>
+            <p>{currentProgram.difficulty}</p>
+          </article>
+          <article>
+            <h3>Duration</h3>
+            <p>{currentProgram.duration}</p>
+          </article>
+          <article>
+            <h3>Training Outcome</h3>
+            <p>{currentProgram.outcome}</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="mountain-pro__curriculum mountain-pro__curriculum--mentorship">
+        <article className="mountain-pro__curriculumCard">
+          <p className="section-eyebrow">Mentorship Treks & Expeditions</p>
+          <h2>Where skills turn into capability</h2>
+          <p>
+            The four Mountain Pro progressions equip participants with essential
+            skills, but sound judgement, intuition, and leadership are built
+            through repeated exposure, real decisions, and guided experience
+            over time.
+          </p>
+        </article>
+
+        <div className="mountain-pro__curriculumGrid">
+          {mentorshipPoints.map((item) => (
+            <article key={item}>
+              <p>{item}</p>
             </article>
           ))}
         </div>
       </section>
 
       <section className="mountain-pro__contact">
-        <h2>Need More Information?</h2>
-        <p>
-          Contact us directly for batch dates, eligibility, and enrollment
-          support.
-        </p>
+        <div>
+          <p className="section-eyebrow">Next Step</p>
+          <h2>Request batch details and enrollment support</h2>
+          <p>
+            Reach out directly for eligibility, upcoming dates, and help
+            choosing the Mountain Pro program that matches your current
+            experience and capability.
+          </p>
+        </div>
         <div className="mountain-pro__ctaRow">
           <a
             href="https://wa.me/917819983273"

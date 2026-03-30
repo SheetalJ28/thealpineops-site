@@ -7,7 +7,7 @@ const Programs = () => {
 
   return (
     <section className="programs-page">
-      <span className="programs-page__eyebrow">Programs</span>
+      <span className="section-eyebrow">Programs</span>
       <h1>Upcoming Programs</h1>
       <p className="programs-page__intro">
         Mission-built training environments designed for real terrain and real
