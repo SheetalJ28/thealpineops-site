@@ -5,6 +5,7 @@ import Home from "./pages/Home/Home";
 import Programs from "./pages/Programs/Programs";
 import ProgramDetail from "./pages/Programs/ProgramDetail";
 import About from "./pages/About/About";
+import Archives from "./pages/Archives/Archives";
 import Contact from "./pages/Contact/Contact";
 import Blogs from "./pages/Blogs/Blogs";
 import MountainPro from "./pages/MountainPro/MountainPro";
@@ -39,6 +40,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/programs" element={<Programs />} />
             <Route path="/programs/:slug" element={<ProgramDetail />} />
+            <Route path="/archives" element={<Archives />} />
             <Route path="/about" element={<About />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/mountain-pro" element={<MountainPro />} />
