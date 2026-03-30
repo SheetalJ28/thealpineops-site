@@ -254,7 +254,7 @@
     }
   }
 
-  &__chatPanel {
+  &__infoPanel {
     display: grid;
     gap: 1rem;
     padding: 1rem;
@@ -265,7 +265,7 @@
       rgba(10, 15, 20, 0.72);
   }
 
-  &__chatShell {
+  &__infoShell {
     display: grid;
     gap: 0.9rem;
     padding: 0.9rem;
@@ -274,7 +274,7 @@
     border: 1px solid rgba(255, 255, 255, 0.05);
   }
 
-  &__chatHeader {
+  &__infoHeader {
     display: grid;
     gap: 0.5rem;
     padding-bottom: 0.9rem;
@@ -290,7 +290,7 @@
     }
   }
 
-  &__chatTopbar {
+  &__infoTopbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -299,7 +299,7 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   }
 
-  &__chatIdentity {
+  &__infoIdentity {
     display: flex;
     align-items: center;
     gap: 0.7rem;
@@ -316,16 +316,7 @@
     }
   }
 
-  &__chatStatus {
-    width: 0.7rem;
-    height: 0.7rem;
-    border-radius: 50%;
-    background: #67d17d;
-    box-shadow: 0 0 0 6px rgba(103, 209, 125, 0.12);
-    flex-shrink: 0;
-  }
-
-  &__chatBadge {
+  &__infoBadge {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -340,9 +331,15 @@
     font-weight: 700;
   }
 
-  &__chatThread {
+  &__infoGrid {
     display: grid;
     gap: 0.8rem;
+
+    p {
+      color: rgba(255, 255, 255, 0.84);
+      line-height: 1.65;
+      margin: 0;
+    }
   }
 
   &__metaGrid {
@@ -373,166 +370,6 @@
     }
   }
 
-  &__bubble {
-    display: grid;
-    gap: 0.45rem;
-    max-width: min(88%, 34rem);
-    padding: 0.9rem 1rem 1rem;
-    border-radius: 1.15rem;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
-
-    p {
-      color: rgba(255, 255, 255, 0.84);
-      line-height: 1.65;
-    }
-
-    &.is-accent {
-      background: rgba(198, 161, 91, 0.14);
-      border-color: rgba(198, 161, 91, 0.22);
-    }
-
-    &.is-muted {
-      background: rgba(93, 123, 160, 0.12);
-    }
-  }
-
-  &__bubbleMeta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.8rem;
-
-    span,
-    small {
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 700;
-    }
-
-    span {
-      font-size: 0.7rem;
-      color: rgba(255, 255, 255, 0.72);
-    }
-
-    small {
-      font-size: 0.62rem;
-      color: rgba(255, 255, 255, 0.42);
-    }
-  }
-
-  &__message {
-    display: flex;
-    align-items: flex-end;
-    gap: 0.7rem;
-  }
-
-  &__message--trainee {
-    justify-content: flex-end;
-  }
-
-  &__avatar {
-    width: 2.1rem;
-    height: 2.1rem;
-    border-radius: 999px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    background: rgba(255, 255, 255, 0.07);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: rgba(255, 255, 255, 0.82);
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
-    font-weight: 800;
-  }
-
-  &__bubble--mentor,
-  &__bubble--system {
-    justify-self: start;
-  }
-
-  &__bubble--trainee {
-    justify-self: end;
-    background: linear-gradient(180deg, rgba(45, 58, 74, 0.88), rgba(31, 41, 54, 0.92));
-  }
-
-  &__message--trainee .mountain-pro__avatar {
-    order: 2;
-    background: rgba(93, 123, 160, 0.16);
-  }
-
-  &__message--system .mountain-pro__avatar {
-    background: rgba(198, 161, 91, 0.16);
-    color: var(--mp-accent);
-  }
-
-  &__message--mentor .mountain-pro__avatar {
-    background: rgba(255, 255, 255, 0.08);
-  }
-
-  &__chatComposer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.8rem;
-    padding-top: 0.85rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.07);
-
-    span {
-      color: rgba(255, 255, 255, 0.56);
-      font-size: 0.88rem;
-    }
-
-    a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 2.5rem;
-      border: 1px solid rgba(198, 161, 91, 0.3);
-      border-radius: 999px;
-      background: rgba(198, 161, 91, 0.12);
-      color: $text-main;
-      padding: 0.5rem 0.9rem;
-      font-size: 0.76rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      text-decoration: none;
-    }
-  }
-
-  &__chatSummary {
-    display: grid;
-    gap: 0.7rem;
-    padding: 1rem;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-
-    h4 {
-      font-size: 1.12rem;
-    }
-
-    p {
-      color: var(--mp-text-soft);
-      line-height: 1.7;
-    }
-
-    .mountain-pro__entryStandard {
-      color: rgba(255, 255, 255, 0.82);
-    }
-
-    ul {
-      margin: 0;
-      padding-left: 1rem;
-      display: grid;
-      gap: 0.45rem;
-      color: rgba(255, 255, 255, 0.82);
-    }
-  }
-
   &__curriculum {
     display: grid;
     gap: 1rem;
@@ -550,15 +387,42 @@
     gap: 0.7rem;
     max-width: 66ch;
 
+    h3 {
+      font-size: 1.08rem;
+      color: rgba(255, 255, 255, 0.88);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
     h2 {
       font-size: clamp(1.5rem, 2.4vw, 2.3rem);
       line-height: 1.08;
     }
 
-    p:last-child {
+    p {
       color: var(--mp-text-soft);
       line-height: 1.7;
     }
+
+    .mountain-pro__entryStandard {
+      color: rgba(255, 255, 255, 0.82);
+    }
+  }
+
+  &__objectivesList {
+    margin: 0;
+    padding-left: 1rem;
+    display: grid;
+    gap: 0.45rem;
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  &__objectivesHeading {
+    margin: 0.35rem 0 0;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.88);
   }
 
   &__curriculumGrid {
@@ -718,7 +582,7 @@
     }
 
     &__mountain,
-    &__chatPanel {
+    &__infoPanel {
       padding: 0.85rem;
       border-radius: 18px;
     }
@@ -728,18 +592,9 @@
       grid-template-columns: 1fr;
     }
 
-    &__bubble {
-      max-width: 100%;
-    }
-
-    &__chatTopbar,
-    &__chatComposer {
+    &__infoTopbar {
       align-items: flex-start;
       flex-direction: column;
-    }
-
-    &__message {
-      gap: 0.55rem;
     }
 
     h1 {

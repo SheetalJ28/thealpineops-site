@@ -72,7 +72,8 @@ const MountainPro = () => {
         <div className="mountain-pro__flowIntro">
           <p className="section-eyebrow">Program Selector</p>
           <h2>
-            Select a Mountain Pro level to view its difficulty and entry criteria
+            Select a Mountain Pro level to view its difficulty and entry
+            criteria
           </h2>
           <p>
             Each program is a distinct stage in the Mountain Pro progression.
@@ -89,7 +90,7 @@ const MountainPro = () => {
           >
             {[...programs].reverse().map((program) => {
               const programIndex = programs.findIndex(
-                (item) => item.id === program.id
+                (item) => item.id === program.id,
               );
               const isActive = programIndex === activeProgram;
 
@@ -112,8 +113,8 @@ const MountainPro = () => {
             })}
           </div>
 
-          <article className="mountain-pro__chatPanel">
-            <div className="mountain-pro__chatHeader">
+          <article className="mountain-pro__infoPanel">
+            <div className="mountain-pro__infoHeader">
               <div>
                 <p className="section-eyebrow">
                   Program {String(currentProgram.id).padStart(2, "0")}
@@ -123,16 +124,15 @@ const MountainPro = () => {
               <p>{currentProgram.outcome}</p>
             </div>
 
-            <div className="mountain-pro__chatShell">
-              <div className="mountain-pro__chatTopbar">
-                <div className="mountain-pro__chatIdentity">
-                  <span className="mountain-pro__chatStatus" aria-hidden="true" />
+            <div className="mountain-pro__infoShell">
+              <div className="mountain-pro__infoTopbar">
+                <div className="mountain-pro__infoIdentity">
                   <div>
-                    <strong>Mountain Pro Briefing</strong>
-                    <p>Live program conversation</p>
+                    <strong>Program briefing</strong>
+                    <p>Overview of the selected Mountain Pro level</p>
                   </div>
                 </div>
-                <span className="mountain-pro__chatBadge">
+                <span className="mountain-pro__infoBadge">
                   {currentProgram.difficulty}
                 </span>
               </div>
@@ -148,51 +148,12 @@ const MountainPro = () => {
                 </article>
               </div>
 
-              <div className="mountain-pro__chatThread" aria-live="polite">
+              <div className="mountain-pro__infoGrid">
                 {currentProgram.chat.map((message, index) => (
-                  <article
-                    key={`${currentProgram.id}-${index}`}
-                    className={`mountain-pro__message mountain-pro__message--${message.speaker.toLowerCase()}`}
-                  >
-                    <span className="mountain-pro__avatar" aria-hidden="true">
-                      {message.speaker === "System"
-                        ? "SY"
-                        : message.speaker === "Mentor"
-                          ? "ME"
-                          : "TR"}
-                    </span>
-                    <div
-                      className={`mountain-pro__bubble mountain-pro__bubble--${message.speaker.toLowerCase()}${
-                        message.tone ? ` is-${message.tone}` : ""
-                      }`}
-                    >
-                      <div className="mountain-pro__bubbleMeta">
-                        <span>{message.speaker}</span>
-                        <small>{index === 0 ? "Now" : `${index + 1} min`}</small>
-                      </div>
-                      <p>{message.text}</p>
-                    </div>
-                  </article>
+                  <p key={`${currentProgram.id}-${index}`}>{message.text}</p>
                 ))}
               </div>
 
-              <div className="mountain-pro__chatComposer" aria-hidden="true">
-                <span>Ask about eligibility, duration, or the right level</span>
-                <a href={`#program-details-${currentProgram.id}`}>View details</a>
-              </div>
-            </div>
-
-            <div className="mountain-pro__chatSummary">
-              <h4>{currentProgram.title}</h4>
-              <p>{currentProgram.summary}</p>
-              <p className="mountain-pro__entryStandard">
-                <strong>Entry standard:</strong> {currentProgram.entryStandard}
-              </p>
-              <ul>
-                {currentProgram.trainingObjectives.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
             </div>
           </article>
         </div>
@@ -204,7 +165,18 @@ const MountainPro = () => {
       >
         <article className="mountain-pro__curriculumCard">
           <p className="section-eyebrow">Selected Program</p>
+          <h3>{currentProgram.title}</h3>
           <h2>{currentProgram.tagline}</h2>
+          <p>{currentProgram.summary}</p>
+          <p className="mountain-pro__entryStandard">
+            <strong>Entry standard:</strong> {currentProgram.entryStandard}
+          </p>
+          <h4 className="mountain-pro__objectivesHeading">Training Objectives</h4>
+          <ul className="mountain-pro__objectivesList">
+            {currentProgram.trainingObjectives.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
           <p>
             The mountains naturally challenge every dimension of human fitness.
             Through structured exposure and progressive difficulty, Mountain Pro
