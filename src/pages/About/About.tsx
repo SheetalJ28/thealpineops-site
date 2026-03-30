@@ -5,7 +5,6 @@ const About = () => {
     <section className="about">
       <div className="hero">
         <div className="heroCopy">
-          <span className="kicker">Our Mission</span>
           <h1>About Alpine Ops</h1>
           <p>
             Alpine Ops is an adventure-led fitness company rooted in the
@@ -37,11 +36,6 @@ const About = () => {
             </div>
           </div> */}
         </div>
-        {/* <div
-          style={{
-            backgroundImage: `url(${baseUrl}assets/images/main5.jpg)`,
-          }}
-        /> */}
       </div>
 
       <div className="values">
@@ -50,12 +44,6 @@ const About = () => {
             <span className="kicker">Why We Exist</span>
             <h2>Built in the mountains. Carried back into real life.</h2>
           </div>
-          {/* <p>
-            We believe humans were never meant to live soft, disconnected lives.
-            We were built to move, adapt, struggle, and grow physically,
-            mentally, socially, and spiritually. Alpine Ops uses the mountains
-            as a training ground to build people, not just complete expeditions.
-          </p> */}
         </div>
         <div className="valueGrid">
           <article className="valueFeature">
