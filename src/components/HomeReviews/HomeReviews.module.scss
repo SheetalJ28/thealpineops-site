@@ -114,10 +114,23 @@
   gap: 0.25rem;
 }
 
+.reviewSubMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
 .reviewStars {
   margin: 0;
   color: #ff4a4a;
   letter-spacing: 0.1em;
+}
+
+.reviewTime {
+  margin: 0;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.58);
 }
 
 .reviewCopy {
